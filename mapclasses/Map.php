@@ -97,9 +97,7 @@ class Map{
             
             
     $(function(){
-            
-            
-            
+                    
             //making the infobox dragable
             $("#draggable-infobox").draggable();
             
@@ -124,23 +122,14 @@ class Map{
             
             </script>
 
-            <script>
-            var uuaarhus_samsoe = ['aarhus.kml','samsoe.kml'];
-              
-            
-            </script>
             
             <div class="infoBox" id = draggable-infobox 
-            id = "text-field">Antal besvarelser:<?php echo $count; ?> <input type="button" value="Aarhus Samsø" onclick="getKommune('googleMap',uuaarhus_samsoe)" />
+            id = "text-field">  <input type="button" id = buttonId value="Tilbage til hele kortet" onclick="backToMap()" />
              
-            <div class = "row-two">  besvaret <div class="canvas green"></div>  </div>
-            <div class = "infoClassRed"><?php echo 56-$count; ?> har ikke svaret</div>
-              
-            <div class = "row-one">ikke besvaret<div class="canvas red">  </div> </div>
-            <div class = "infoClass"><?php echo $count; ?> har svaret</div>
+            <div id = "info"> Centernavn:</div>
+            <script> document.getElementById("info").innerHTML = this.uuCenter.centerName </script>
             
-   
- 
+            
 
             </div>
     

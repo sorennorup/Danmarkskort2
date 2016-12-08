@@ -19,76 +19,66 @@ function uuCenter(mapId,arr = [], keys = [] ){
    this.lng = arr[4]; // must not be changed
 
    this.propArrCreate = // set the fieldlabels and the fieldvalues in a twodimensional array
-function(){   
+   function(){   
    
    var propArr = []
- for(var k = 0;k<arr.length;k++ ){
-   if (k!=3&&k!=4){
-   propArr.push([keys[k],arr[k]])
+      for(var k = 0;k<arr.length;k++ ){
+         if (k!=3&&k!=4){
+            propArr.push([keys[k],arr[k]])
    }
 }
     
-   return propArr
+      return propArr
 }
 
-this.space= // set the postion of the centeraddress
+   this.space= // set the postion of the centeraddress
    function(){
-   var pos=new google.maps.LatLng(this.lat,this.lng);
-   
-    return pos;
+      var pos=new google.maps.LatLng(this.lat,this.lng);
+      return pos;
 }
 
     
-this.returnContent = // create all the content to be displayed in the infoWindow
-function(){
+   this.returnContent = // create all the content to be displayed in the infoWindow
+   function(){
         
       var propertyArr = this.propArrCreate();  //get the twodimentional array created by the proparrCreate function  
      
-      var str="<div style='width:300px;height:auto;font-family:calibri;z-index:-1; font-size: 16px;'>" //some style to display in the infowindow
+      var str="<div style = 'width:300px;height:auto;font-family:calibri;z-index:-1; font-size: 16px;'>" //some style to display in the infowindow
       
-       str+="<b>Centernavn: "+ this.centerName+"</b><br/>"// The first field will allways be centername 
+      str+="<b>Centernavn: "+ this.centerName+"</b><br/>"// The first field will allways be centername 
         + '<button id = "kommune"> Se området UU centeret dækker</div>'
-         for(var j = 0; j< propertyArr.length;j++){
-           
-               
-            str+= "<b>" +propertyArr[j][0]+":</b>  "+ propertyArr[j][1]+"<br/>" // inserts the fieldtitles and the values in the content
-            
-            
-              
+         for(var j = 0; j< propertyArr.length;j++){                     
+            str+= "<b>" +propertyArr[j][0]+":</b>  "+ propertyArr[j][1]+"<br/>" // inserts the fieldtitles and the values in the content                        
             }   
             +"</div>";                  
      
-      return(str)
-      
+      return(str)     
     }
                     
-this.marker=  // display the pin on the map og sets all the content in the infowindow
-function(map){
+   this.marker =  // display the pin on the map og sets all the content in the infowindow
+   function(map){
          
     
-    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|"+pinColor);
+      var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|"+pinColor);
     
-    var mark = new google.maps.Marker({
+      var mark = new google.maps.Marker({
         icon: pinImage,
         position:this.space(),
         url:this.url, 
     })
          
-    mark.setAnimation();
+      mark.setAnimation();
         
       var infoW = new google.maps.InfoWindow({
          maxWidth:800,       
-         content: this.returnContent()       
-       
+         content: this.returnContent()              
 });
       
-      google.maps.event.addListener(infoW, 'domready', function() {
-         
+      google.maps.event.addListener(infoW, 'domready', function() {         
       document.getElementById("kommune").addEventListener('click',function(){
          var kommuner = getUUCenter(arr[0]);
          getKommune(mapId,kommuner);   
-         });
-         
+         });        
     });
       
       
@@ -103,74 +93,58 @@ function(map){
          
         infoW.open(map,mark)
         //this.getElementById("kommune").addEventListener(click,function(){getKommuner(mapId,uuaarhus_samsoe)});
-        infoW2.close();
-        
-      
-      
-               
+        infoW2.close();             
     });
      
       
           // open infoW2 when marker is mouseovered
        google.maps.event.addListener(mark, "mouseover", function(){
          
-         infoW2.open(map,mark);
+      infoW2.open(map,mark);
          
          });
        
        google.maps.event.addListener(mark, "mouseout", function(){
          
-         infoW2.close();
+      infoW2.close();
          
          });
         
         
         
-        google.maps.event.addListener(mark,"click",function(){
+      google.maps.event.addListener(mark,"click",function(){
          
          
-           
-         
-        });
-     
-      
-    return mark
+        });      
+      return mark
 }
  
-    
-    
-
-
 }
 // End of the centerObject
 
 
-function createCenterObject(mapId){     
+   function createCenterObject(mapId){     
     
-       var centerObject=new Array();
+      var centerObject=new Array();
        
- for (var i=0;i<centerInfo.length;i++) {       
+      for (var i=0;i<centerInfo.length;i++) {       
                     
           centerObject[i]= new uuCenter(
                  mapId,
                  centerInfo[i],
                  keyStr
                  
-                 );
-         
-          
-           }
-          
-      return centerObject;
-      
+                 );               
+           }         
+      return centerObject;     
      }
 
- function initialize(zoom,place,mapId)
+   function initialize(zoom,place,mapId)
 {
  
-  var center = new google.maps.LatLng(56.266427,10.292759);
+   var center = new google.maps.LatLng(56.266427,10.292759);
  
-  var mapProp = {
+   var mapProp = {
      center:center,
      zoomControl:false,  
      scaleControl:false,
@@ -182,19 +156,19 @@ function createCenterObject(mapId){
   };  
      var map = new google.maps.Map(document.getElementById(mapId),mapProp);
 
-     
+   
     
 //styling the map
-map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
-    mapTypeControl: true,
-    scaleControl: true,
-    draggable: true,
-    zooom:true,
+   map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
+      mapTypeControl: true,
+      scaleControl: true,
+      draggable: true,
+      zooom:true,
     
     }  
     );
 
-    
+     
     
     
   var regionChoords = [

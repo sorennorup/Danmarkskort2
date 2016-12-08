@@ -12,9 +12,10 @@
                 
                 loadKmlLayer(src,map);
             }
+           
             
             }
- 
+              // Get the kmlfiles from the server and load the kmlLayer to the googlemap
     function loadKmlLayer(src, map) {
             var kmlLayer = new google.maps.KmlLayer(src, {
             suppressInfoWindows: false,
@@ -28,15 +29,18 @@
             testimonial.innerHTML = content;
             });
             }
-        
+        // Finds the kml filename that belong to the UU Center. 
    function getUUCenter(uucenter){
+        var kommuner;
         var res; 
         switch (uucenter) {
                 case "UU Vallensbæk":
                         res = ['vallensbaek.kml'];
+                        kommuner = "Vallensbæk kommune"
                         break;             
                 case  "UU Hedensted":
                         res = ['hedensted.kml'];
+                        kommuner = "Hedensted kommune"
                         break;
                 case "UU Jammerbugt":
                         res = ['jammerbugt.kml'];
@@ -52,6 +56,7 @@
                         break;
                 case "UU Center Syd":
                         res = ['hvidovre.kml','broendby.kml','ishoej.kml'];
+                        kommuner = "Hvidovre,Brøndby og Ishøj kommune"
                         break;                
                 case  "UU Center Sydfyn":
                         res = ['faaborg.kml','langeland.kml','svendborg.kml','aeroe.kml'];
@@ -65,13 +70,24 @@
                 case  "UU Favrskov":
                         res = ['favrskov.kml'];
                         break;
-                
-                
-                
-                asdfsa
+                                          
         }
-        
+         document.getElementById("info").innerHTML = "UU Center: " + uucenter + "</br> Dækker kommuner: "+ kommuner;
          return res; 
+        
+        
+   }
+   
+   function backToMap(){
+        document.getElementById("buttonId").addEventListener('click',function(){
+                 
+                initialize(7,'1','googleMap');
+                
+                
+                })
+
+       
+
         
         
    }
