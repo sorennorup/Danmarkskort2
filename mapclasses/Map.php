@@ -48,12 +48,14 @@ class Map{
             <!DOCTYPE html>
             <html>
             <head>
+                      
             <script type="text/javascript" src="js/objectContrukt.js"> </script>
             <script type="text/javascript" src="js/polygon.js"> </script>
             <script src="js/jquery.min.js"></script>
             <script src="js/jquery-ui.min.js"></script>
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript" src="js/uucentre.js"></script>
+            <script type="text/javascript" src="js/uucentrelist.js"></script>
             <link rel="stylesheet" type="text/css" href = "css/style.css">
             <script>
              google.charts.load('current', {packages: ['corechart']});
@@ -118,19 +120,14 @@ class Map{
             $(".infoClassRed").hide();
             })
              })
-            
-            
+                        
             </script>
-
-            
+           
             <div class="infoBox" id = draggable-infobox 
             id = "text-field">  <input type="button" id = buttonId value="Tilbage til hele kortet" onclick="backToMap()" />
              
-            <div id = "info"> Centernavn:</div>
-            <script> document.getElementById("info").innerHTML = this.uuCenter.centerName </script>
-            
-            
-
+            <div id = "info"> </div>
+           
             </div>
     
             <div id="googleMap">  </div>

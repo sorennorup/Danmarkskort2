@@ -21,7 +21,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
    this.propArrCreate = // set the fieldlabels and the fieldvalues in a twodimensional array
    function(){   
    
-   var propArr = []
+   var propArr = [];
       for(var k = 0;k<arr.length;k++ ){
          if (k!=3&&k!=4){
             propArr.push([keys[k],arr[k]])
@@ -36,8 +36,19 @@ function uuCenter(mapId,arr = [], keys = [] ){
       var pos=new google.maps.LatLng(this.lat,this.lng);
       return pos;
 }
-
-    
+   this.streetView =
+   function(id){
+      var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById(id), {
+              position: this.space(),
+              pov: {
+                heading: 34,
+                pitch: 10
+              }
+            });
+      map.setStreetView(panorama);
+   }
+      
    this.returnContent = // create all the content to be displayed in the infoWindow
    function(){
         
@@ -76,11 +87,12 @@ function uuCenter(mapId,arr = [], keys = [] ){
       
       google.maps.event.addListener(infoW, 'domready', function() {         
       document.getElementById("kommune").addEventListener('click',function(){
-         var kommuner = getUUCenter(arr[0]);
-         getKommune(mapId,kommuner);   
+        
+         var kommuner = getUUCenter(arr);
+         getKommune(mapId,kommuner);
+         
          });        
     });
-      
       
    var infoW2 = new google.maps.InfoWindow({
         maxWidth:500,
@@ -118,7 +130,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
         });      
       return mark
 }
- 
+   
 }
 // End of the centerObject
 
@@ -143,6 +155,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
 {
  
    var center = new google.maps.LatLng(56.266427,10.292759);
+   
  
    var mapProp = {
      center:center,
@@ -528,12 +541,6 @@ new google.maps.LatLng(56.678865,9.319153)
       createRegion(Zeland,"#000",map).addListener('click',function(){show("Region Sjælland",55.742574,10.969849)});
       createRegion(regionChoords,"#FF0000",map).addListener('click',function(){show("Region Hovedstaden",55.683779,12.062988)});
       
- 
- //UU Aarhussamsue
-      //getAarhusSamsoe(map)
-        //getDenmark(map)
- 
-   
   
    function show(regionStr,lat,lng){
   
