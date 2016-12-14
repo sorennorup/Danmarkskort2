@@ -19,105 +19,58 @@ var kommune_daekning = [
     {"name": "UU Horsens","kommuner": ['horsens.kml']},
     {"name": "UU Hjørring","kommuner":['hjoerring.kml']},
     {"name": "UU Ikast Brande" ,"kommuner":['ikast.kml']},
-    {"name": "UU Vallensbæk" ,"kommuner":['vallensbaek.kml']},
+    {"name": "UU Jammerbugt" ,"kommuner":['jammerbugt.kml']},
+    {"name": "UU Kolding" ,"kommuner":['kolding.kml']},
+    {"name": "UU København" ,"kommuner":['koebenhavn.kml']},
+    {"name": "UU Lillebælt" ,"kommuner":['fredericia.kml','middelfart.kml']},
+    {"name": "UU Lolland Falster" ,"kommuner":['lolland.kml','guldborgsund.kml']},
+    {"name": "UU Mariagerfjord" ,"kommuner":['mariagerfjord.kml']},
+    {"name": "UU Mors" ,"kommuner":['morsoe.kml']},
+    {"name": "UU Nord" ,"kommuner":['gladsaxe.kml','lyngby.kml','gentofte.kml','herlev.kml']},
+    {"name": "UU Nordvestjylland","kommuner":['holstebro.kml','struer.kml','lemvig.kml']},
+    {"name": "UU Nordvestsjælland" ,"kommuner":['odsherred.kml','kalundborg.kml','holbaek.kml']},
+    {"name": "UU Odder Skanderborg" ,"kommuner":['odder.kml','skanderborg.kml']},
+    {"name": "UU Odense og Omegn" ,"kommuner":['nordfyns.kml','kerteminde.kml','nyborg.kml','odense.kml','assens.kml']},
+    {"name": "UU Randers" ,"kommuner":['randers.kml']},
+    {"name": "UU Rebild" ,"kommuner":['rebild.kml']},
+    {"name": "UU Ringkøbing Skjern" ,"kommuner":['ringkobing.kml']},
+    {"name": "UU Roskilde Lejre" ,"kommuner":['roskilde.kml','lejre.kml']},
+    {"name": "UU Silkeborg" ,"kommuner":['silkeborg.kml']},
+    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.kml','vordingborg.kml','faxe.kml']},
+    {"name": "UU Sjælsø" ,"kommuner":['alleroed.kml','furesoe.kml','hoersholm.kml','rudersdal.kml']},
+    {"name": "UU Skive" ,"kommuner":['skive.kml']},
+    {"name": "UU Sønderborg" ,"kommuner":['soenderborg.kml']},
+    {"name": "UU Thy" ,"kommuner":['thisted.kml']},
+    {"name": "UU Tønder" ,"kommuner":['toender.kml']},
+    {"name": "UU Tårnby" ,"kommuner":['taarnby.kml','dragoe.kml']},
+   
 ];
 
-  /*case "UU Vallensbæk":
-                        res = ['vallensbaek.kml'];                      
-                        break;             
-                
-                case "UU Jammerbugt":
-                        res = ['jammerbugt.kml'];
-                        break;              
-                case  "UU Vejen":
-                        res = ['vejen.kml'];
-                        break;             
-                
+  
                
                 
                 
                 
+                   
+              
+                
+              
+        
+              
+                
+              
+               
                 
                 
+               
                 
                 
                
                
-                case  "UU Kolding":
-                        res = ['kolding.kml'];
-                        break;
-                case  "UU København":
-                        res = ['koebenhavn.kml'];
-                        break;
-                case  "UU Lillebælt":
-                        res = ['fredericia.kml','middelfart.kml'];
-                        break;
-                case  "UU Lolland Falster":
-                        res = ['lolland.kml','guldborgsund.kml'];
-                        break;
-                case  "UU Mariagerfjord":
-                        res = ['mariagerfjord.kml'];
-                        break;
-                case  "UU Mors":
-                        res = ['morsoe.kml',];
-                        break;
-                case  "UU Lillebælt":
-                        res = ['fredericia.kml','middelfart.kml'];
-                        break;
-                case  "UU Nord":
-                        res = ['gladsaxe.kml','lyngby.kml','gentofte.kml','herlev.kml'];
-                        break;
-                case  "UU Nordvestjylland":
-                        res = ['holstebro.kml','struer.kml','lemvig.kml'];
-                        break;
-                case  "UU Nordvestsjælland":
-                        res = ['odsherred.kml','kalundborg.kml','holbaek.kml'];
-                        break;
-                case  "UU Odder Skanderborg":
-                        res = ['odder.kml','skanderborg.kml'];
-                        break;
-                case  "UU Odense og Omegn":
-                        res = ['nordfyns.kml','kerteminde.kml','nyborg.kml','odense.kml','assens.kml'];
-                        break;
-                case  "UU Randers":
-                        res = ['randers.kml'];
-                        break;
-                case  "UU Rebild":
-                        res = ['rebild.kml'];
-                        break;
-                case  "UU Ringkøbing Skjern":
-                        res = ['ringkobing.kml'];
-                        break;
-                case  "UU Odense og Omegn":
-                        res = ['nordfyns.kml','kerteminde.kml','nyborg.kml','odense.kml','assens.kml'];
-                        break;
-                case  "UU Roskilde Lejre":
-                        res = ['roskilde.kml','lejre.kml'];
-                        break;
-                case  "UU Silkeborg":
-                        res = ['silkeborg.kml'];
-                        break;
-                case  "UU Sjælland Syd":
-                        res = ['naestved.kml','vordingborg.kml','faxe.kml'];
-                        break;
-                case  " UU Sjælsø":
-                        res = ['alleroed.kml','furesoe.kml','hoersholm.kml','rudersdal.kml'];
-                        break;
-                case  "UU Skive":
-                        res = ['skive.kml'];
-                        break;
-                case  "UU Sønderborg":
-                        res = ['soenderborg.kml'];
-                        break;
-                case  "UU Thy":
-                        res = ['skive.kml'];
-                        break;
-                case  "UU Tønder":
-                        res = ['toender.kml'];
-                        break;
-                case  "UU Tårnby":
-                        res = ['taarnby.kml','dragoe.kml'];
-                        break;
+                
+            /*  
+               
+            
                 case  "UU V Køge Bugt":
                         res = ['greve.kml','koege.kml','solroed.kml','stevns.kml'];
                         break;
@@ -130,6 +83,16 @@ var kommune_daekning = [
                 case  "UU Brønderslev":
                         res = ['broenderslev.kml'];
                         break;
+                    
+                 case "UU Vallensbæk":
+                        res = ['vallensbaek.kml'];                      
+                        break;             
+                
+                      
+                case  "UU Vejen":
+                        res = ['vejen.kml'];
+                        break;             
+                   
                 case  "UU Vest Region Hovedstaden":
                         res = ['egedal.kml','frederikssund.kml'];
                         break;
