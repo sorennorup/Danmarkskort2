@@ -47,29 +47,7 @@ var kommune_daekning = [
 ];
 
   
-               
-                
-                
-                
-                   
-              
-                
-              
-        
-              
-                
-              
-               
-                
-                
-               
-                
-                
-               
-               
-                
-            /*  
-               
+     /*
             
                 case  "UU V Køge Bugt":
                         res = ['greve.kml','koege.kml','solroed.kml','stevns.kml'];
