@@ -550,7 +550,7 @@ new google.maps.LatLng(56.678865,9.319153)
 
     infoWindow.setContent(contentString);
     infoWindow.setPosition(new google.maps.LatLng(lat,lng));
-
+   
     infoWindow.open(map);
     
   }
