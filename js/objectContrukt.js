@@ -184,7 +184,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
      
     
     
- var regionChoords = [
+  var regionChoords = [
       
 new google.maps.LatLng(56.047500,12.557373),
 new google.maps.LatLng(55.720923,12.634277),
@@ -199,7 +199,7 @@ new google.maps.LatLng(55.986092,11.843262),
 new google.maps.LatLng(56.145550,12.271729),
 new google.maps.LatLng(56.102683,12.480469)
 ]
-
+ 
       
      var bornholm = [
          new google.maps.LatLng(55.285372,14.765625),
@@ -534,7 +534,7 @@ new google.maps.LatLng(56.678865,9.319153)
  ]
        
        //create the polygon and add a listener to the object
-      createRegion(northjutland,"#07513b",map).addListener('mouseover',function(){show("Region Nordjylland",57.163057,9.860229)});
+      createRegion(northjutland,"#07513b",map).addListener('click',function(){show("Region Nordjylland",57.163057,9.860229)});
       createRegion(midtjylland,"#000",map).addListener('click',function(){show("Region Midtjylland",56.483729,8.618774)});
       createRegion(regionChoords,"#FF0000",map).addListener('click',function(){show("Region Hovedstaden",55.683779,12.062988)});
       createRegion(southDenmark,"#336699",map).addListener('click',function(){show("Region Syddanmark",54.835500,9.401550)});
@@ -550,11 +550,9 @@ new google.maps.LatLng(56.678865,9.319153)
 
     infoWindow.setContent(contentString);
     infoWindow.setPosition(new google.maps.LatLng(lat,lng));
-   
+
     infoWindow.open(map);
-    
   }
-  
  
  
   //var myLatLng = {lat: 55.9474566, lng: 12.3772604};

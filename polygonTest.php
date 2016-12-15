@@ -40,11 +40,27 @@
        */
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(56.266427,10.292759),
-          zoom: 8,
+          center: new google.maps.LatLng(55.1916538649462,11.678901769377), 
+          zoom: 9,
           mapTypeId: 'terrain'
         });
-        loadKmlLayer(src, map);
+        var num = map.data.loadGeoJson('js/faxe.json')
+         var color = "yellow"
+        if("UU Sydsj¾lland" == "UU Sydsj¾lland")
+        // get the data on UU Sydsj¾lland
+        // if(data < lowerQuartile){color = "green"}
+        map.data.loadGeoJson('js/kommuner.json');
+        map.data.loadGeoJson('js/naestved.json');
+        map.data.loadGeoJson('js/faxe.json');
+        
+        
+        map.data.setStyle({
+        
+        fillColor: color
+});
+        map.data.addListener('mouseover', function(event) {
+       map.data.overrideStyle(event.feature, {fillColor: 'red'});
+});
       }
 
       /**

@@ -11,7 +11,7 @@
         <div id= "box"></div>
         <script>
           
-           var data = [1,5,7,4,3,8,10,100,4];
+           var data = [1,5,7,4,3,8,10,10,4];
         
         </script>
         
