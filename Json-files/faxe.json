@@ -1011,8 +1011,9 @@
                     {
                         "type": "Point",
                         "coordinates": [
-                            12.058067933614,
-                            55.269241432945,
+                            12.119075,
+                            55.255019,
+                                
                             0
                         ]
                     }
@@ -1020,7 +1021,7 @@
             },
             "properties": {
                 "name": "Faxe Kommune",
-                "styleUrl": "#default",
+                "styleUrl": "none",
                 "styleHash": "2ddbd54f",
                 "styleMapHash": {
                     "normal": "#default_normal",

@@ -1,54 +1,49 @@
 
-function CalculateDataViewController(dataArray = []){
+ function CalculateDataViewController(dataArray = []){
     
     this.dataArr = dataArray
     
     this.datObj = new CalculateData(this.dataArr)
 
-     
+    var number;
    
-    
-     this.displayColors = function(colorStr){
+    //display color in the infobox
+    this.displayColors = function(colorStr){
       var res = '<span style = "background-color:'+colorStr+ ';color:'+colorStr+ '; width:50px; height:100px;">----</span> '
       return res;
     }
-    
+     //put colorboxes and numbers info the infobox
    this.dataInBox = function(){
-    
+     //first line show the category with the lowest interval
     var l1 = this.displayColors("green") + this.datObj.findLowestValue() + "% - "+ this.datObj.findLowerQuartile()+ "%" ;
-  
-    var l2 = this.displayColors("yellow") + this.datObj.findLowerQuartile()+ " % - "+ this.datObj.calMedian()+ " % ";
-  
-    var l3 = this.displayColors("red") + this.datObj.calMedian()+ " % - "+ this.datObj.findHigestValue()+ " % ";
+     //second line show the category with medium interval
+    var l2 = this.displayColors("yellow") + parseInt(this.datObj.findLowerQuartile()+1)+ " % - "+ this.datObj.calMedian()+ " % ";
+       //third line show the category with the highest interval
+    var l3 = this.displayColors("red") + parseInt(this.datObj.calMedian()+1)+ " % - "+ this.datObj.findHigestValue()+ " % ";
        
-    
-    
      return  l1 +  "</br></br>" + l2 + "</br></br>"+l3 + "</br></br>"
   }
+    // calculate what color the area on map should have
+   this.calculateColor = function(number){
+    var color;
+         
+        if(number < this.datObj.findLowerQuartile())
+            {color = "green"}
+          else if (number > this.datObj.findLowerQuartile() && number < this.datObj.calMedian()) {
+            color = "yellow"
+        }
+            else if (number > this.datObj.calMedian()){
+            color = "red"
+          
+        }
+         return color;
+    }
      
-     
-  
-     //ViewController
-  /*function partIntoCat(num){
-      var res
-   
-    if (num < findLowerQuartile()) {
-        res = findLowestValue() + "% - "+ findLowerQuartile()+ "% - ";
-        var color = "green";
-        return res
-    }   
-      return "No"
-  }
-  */
-    
-    
-    
-}
-function initialize(dataArray = []){
-    var r = new CalculateDataViewController(dataArray)
-      document.getElementById("box").innerHTML = r.dataInBox();
-    
-    
+
+    }
+    function initialize(dataArray = []){
+        var r = new CalculateDataViewController(dataArray)
+        document.getElementById("box").innerHTML = r.dataInBox();
     
     
   }

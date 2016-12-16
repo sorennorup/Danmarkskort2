@@ -20,7 +20,7 @@ class Map{
             $podio_data=new PodioConnect($this->appId);          
             $this->exValues = $podio_data->getAllFieldValues();
             $this->fieldNames = $podio_data->getAllFieldNames();
-              //$this->fieldNames = array("centernavn"," lat2","lng3","Spørgeskema besvaret","Værdi","Værdi2");
+              
             }
             
         catch(PodioError $e) {
