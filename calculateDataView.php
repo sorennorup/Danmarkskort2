@@ -67,22 +67,29 @@
         
         var color;
         var infoWindow = new google.maps.InfoWindow;
+        
           // create a new dataviewcontroller object
         var dataView = new CalculateDataViewController(dArray)
+       
         // this is going to be a field value from Podio
         var data  =  10;
+        
         //set the fillcolor variable
         color = dataView.calculateColor(data);
+       
         //loop through the json object
-        for(var j = 0; j < kommune_daekningJson.length; j++){
+        for(var j = 0; j < centerInfo.length; j++){
             centername = centerInfo[j][0] 
+        
         // find the matching center data and loop through all the kommunerfiles
-          if (kommune_daekningJson[0].name == centername ){
-            for(var i = 0; i <= kommune_daekningJson[0].kommuner.length; i++){
-              var res = "Json-files/"+kommune_daekningJson[0].kommuner[i];    
+          for(var k = 0; k < kommune_daekningJson.length; k++){
+          if (kommune_daekningJson[k].name == centername ){
+            for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
+              var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
               map.data.loadGeoJson(res);
                
             }
+          }
           }
            // style the color of the layer with color variable
           map.data.setStyle({
