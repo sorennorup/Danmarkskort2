@@ -1,96 +1,96 @@
 var kommune_daekning = [
-    {"name": "UU Aarhus Samsø","kommuner":['aarhus.json','samsoe.json']},
-    {"name": "UU Aalborg","kommuner":['aalborg.json']},
-    {"name": "UU Aabenraa","kommuner":['aabenraa.json']},
-    {"name": "UU Billund","kommuner":['billund.json']},
-    {"name": "UU Bornholm","kommuner":['bornholm.json']},
-    {"name": "UU Center Syd","kommuner": ['hvidovre.json','broendby.json','ishoej.json']},
-    {"name": "UU Center Sydfyn","kommuner":['faaborg.json','langeland.json','svendborg.json','aeroe.json']},
-    {"name": "UU Djursland","kommuner": ['norddjurs.json','syddjurs.json']},
-    {"name": "UU Esbjerg","kommuner":['esbjerg.json','fanoe.json'] },
-    {"name": "UU Favrskov","kommuner":['favrskov.json']},
-    {"name": "UU Frederiksberg" ,"kommuner":['frederiksberg.json']},
-    {"name": "UU Frederikshavn" ,"kommuner":['frederikshavn.json']},
-    {"name": "UU Gribskov" ,"kommuner":['gribskov.json']},
-    {"name": "UU Haderslev" ,"kommuner":['haderslev.json']},
-    {"name": "UU Halsnæs/Hillerød","kommuner":['halsnaes.json','hilleroed.json']},
-    {"name": "UU Hedensted" ,"kommuner":['hedensted.json']},
-    {"name": "UU Herning" ,"kommuner":['herning.json']},
-    {"name": "UU Horsens","kommuner": ['horsens.json']},
-    {"name": "UU Hjørring","kommuner":['hjoerring.json']},
-    {"name": "UU Ikast Brande" ,"kommuner":['ikast.json']},
-    {"name": "UU Jammerbugt" ,"kommuner":['jammerbugt.json']},
-    {"name": "UU Kolding" ,"kommuner":['kolding.json']},
-    {"name": "UU København" ,"kommuner":['koebenhavn.json']},
-    {"name": "UU Lillebælt" ,"kommuner":['fredericia.json','middelfart.json']},
-    {"name": "UU Lolland Falster" ,"kommuner":['lolland.json','guldborgsund.json']},
-    {"name": "UU Mariagerfjord" ,"kommuner":['mariagerfjord.json']},
-    {"name": "UU Mors" ,"kommuner":['morsoe.json']},
-    {"name": "UU Nord" ,"kommuner":['gladsaxe.json','lyngby.json','gentofte.json','herlev.json']},
-    {"name": "UU Nordvestjylland","kommuner":['holstebro.json','struer.json','lemvig.json']},
-    {"name": "UU Nordvestsjælland" ,"kommuner":['odsherred.json','kalundborg.json','holbaek.json']},
-    {"name": "UU Odder Skanderborg" ,"kommuner":['odder.json','skanderborg.json']},
-    {"name": "UU Odense og Omegn" ,"kommuner":['nordfyns.json','kerteminde.json','nyborg.json','odense.json','assens.json']},
-    {"name": "UU Randers" ,"kommuner":['randers.json']},
-    {"name": "UU Rebild" ,"kommuner":['rebild.json']},
-    {"name": "UU Ringkøbing Skjern" ,"kommuner":['ringkobing.json']},
-    {"name": "UU Roskilde Lejre" ,"kommuner":['roskilde.json','lejre.json']},
-    {"name": "UU Silkeborg" ,"kommuner":['silkeborg.json']},
-    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.json','vordingborg.json','faxe.json']},
-    {"name": "UU Sjælsø" ,"kommuner":['alleroed.json','furesoe.json','hoersholm.json','rudersdal.json']},
-    {"name": "UU Skive" ,"kommuner":['skive.json']},
-    {"name": "UU Sønderborg" ,"kommuner":['soenderborg.json']},
-    {"name": "UU Thy" ,"kommuner":['thisted.json']},
-    {"name": "UU Tønder" ,"kommuner":['toender.json']},
-    {"name": "UU Tårnby" ,"kommuner":['taarnby.json','dragoe.json']},
+    {"name": "UU Aarhus Samsø","kommuner":['aarhus.kml','samsoe.kml']},
+    {"name": "UU Aalborg","kommuner":['aalborg.kml']},
+    {"name": "UU Aabenraa","kommuner":['aabenraa.kml']},
+    {"name": "UU Billund","kommuner":['billund.kml']},
+    {"name": "UU Bornholm","kommuner":['bornholm.kml']},
+    {"name": "UU Center Syd","kommuner": ['hvidovre.kml','broendby.kml','ishoej.kml']},
+    {"name": "UU Center Sydfyn","kommuner":['faaborg.kml','langeland.kml','svendborg.kml','aeroe.kml']},
+    {"name": "UU Djursland","kommuner": ['norddjurs.kml','syddjurs.kml']},
+    {"name": "UU Esbjerg","kommuner":['esbjerg.kml','fanoe.kml'] },
+    {"name": "UU Favrskov","kommuner":['favrskov.kml']},
+    {"name": "UU Frederiksberg" ,"kommuner":['frederiksberg.kml']},
+    {"name": "UU Frederikshavn" ,"kommuner":['frederikshavn.kml']},
+    {"name": "UU Gribskov" ,"kommuner":['gribskov.kml']},
+    {"name": "UU Haderslev" ,"kommuner":['haderslev.kml']},
+    {"name": "UU Halsnæs/Hillerød","kommuner":['halsnaes.kml','hilleroed.kml']},
+    {"name": "UU Hedensted" ,"kommuner":['hedensted.kml']},
+    {"name": "UU Herning" ,"kommuner":['herning.kml']},
+    {"name": "UU Horsens","kommuner": ['horsens.kml']},
+    {"name": "UU Hjørring","kommuner":['hjoerring.kml']},
+    {"name": "UU Ikast Brande" ,"kommuner":['ikast.kml']},
+    {"name": "UU Jammerbugt" ,"kommuner":['jammerbugt.kml']},
+    {"name": "UU Kolding" ,"kommuner":['kolding.kml']},
+    {"name": "UU København" ,"kommuner":['koebenhavn.kml']},
+    {"name": "UU Lillebælt" ,"kommuner":['fredericia.kml','middelfart.kml']},
+    {"name": "UU Lolland Falster" ,"kommuner":['lolland.kml','guldborgsund.kml']},
+    {"name": "UU Mariagerfjord" ,"kommuner":['mariagerfjord.kml']},
+    {"name": "UU Mors" ,"kommuner":['morsoe.kml']},
+    {"name": "UU Nord" ,"kommuner":['gladsaxe.kml','lyngby.kml','gentofte.kml','herlev.kml']},
+    {"name": "UU Nordvestjylland","kommuner":['holstebro.kml','struer.kml','lemvig.kml']},
+    {"name": "UU Nordvestsjælland" ,"kommuner":['odsherred.kml','kalundborg.kml','holbaek.kml']},
+    {"name": "UU Odder Skanderborg" ,"kommuner":['odder.kml','skanderborg.kml']},
+    {"name": "UU Odense og Omegn" ,"kommuner":['nordfyns.kml','kerteminde.kml','nyborg.kml','odense.kml','assens.kml']},
+    {"name": "UU Randers" ,"kommuner":['randers.kml']},
+    {"name": "UU Rebild" ,"kommuner":['rebild.kml']},
+    {"name": "UU Ringkøbing Skjern" ,"kommuner":['ringkobing.kml']},
+    {"name": "UU Roskilde Lejre" ,"kommuner":['roskilde.kml','lejre.kml']},
+    {"name": "UU Silkeborg" ,"kommuner":['silkeborg.kml']},
+    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.kml','vordingborg.kml','faxe.kml']},
+    {"name": "UU Sjælsø" ,"kommuner":['alleroed.kml','furesoe.kml','hoersholm.kml','rudersdal.kml']},
+    {"name": "UU Skive" ,"kommuner":['skive.kml']},
+    {"name": "UU Sønderborg" ,"kommuner":['soenderborg.kml']},
+    {"name": "UU Thy" ,"kommuner":['thisted.kml']},
+    {"name": "UU Tønder" ,"kommuner":['toender.kml']},
+    {"name": "UU Tårnby" ,"kommuner":['taarnby.kml','dragoe.kml']},
    
 ];
   var kommune_daekningJson = [
-    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.json','kommuner.json','faxe.json']},
-    {"name": "UU Aarhus Samsø","kommuner":['aarhus.json','samsoe.json']},
-    {"name": "UU Aalborg","kommuner":['aalborg.json']},
-    {"name": "UU Aabenraa","kommuner":['aabenraa.json']},
-    {"name": "UU Billund","kommuner":['billund.json']},
-    {"name": "UU Bornholm","kommuner":['bornholm.json']},
-    {"name": "UU Center Syd","kommuner": ['hvidovre.json','broendby.json','ishoej.json']},
-    {"name": "UU Center Sydfyn","kommuner":['faaborg.json','langeland.json','svendborg.json','aeroe.json']},
-    {"name": "UU Djursland","kommuner": ['norddjurs.json','syddjurs.json']},
-    {"name": "UU Esbjerg","kommuner":['esbjerg.json','fanoe.json'] },
-    {"name": "UU Favrskov","kommuner":['favrskov.json']},
-    {"name": "UU Frederiksberg" ,"kommuner":['frederiksberg.json']},
-    {"name": "UU Frederikshavn" ,"kommuner":['frederikshavn.json']},
-    {"name": "UU Gribskov" ,"kommuner":['gribskov.json']},
-    {"name": "UU Haderslev" ,"kommuner":['haderslev.json']},
-    {"name": "UU Halsnæs/Hillerød","kommuner":['halsnaes.json','hilleroed.json']},
-    {"name": "UU Hedensted" ,"kommuner":['hedensted.json']},
-    {"name": "UU Herning" ,"kommuner":['herning.json']},
-    {"name": "UU Horsens","kommuner": ['horsens.json']},
-    {"name": "UU Hjørring","kommuner":['hjoerring.json']},
-    {"name": "UU Ikast Brande" ,"kommuner":['ikast.json']},
-    {"name": "UU Jammerbugt" ,"kommuner":['jammerbugt.json']},
-    {"name": "UU Kolding" ,"kommuner":['kolding.json']},
-    {"name": "UU København" ,"kommuner":['koebenhavn.json']},
-    {"name": "UU Lillebælt" ,"kommuner":['fredericia.json','middelfart.json']},
-    {"name": "UU Lolland Falster" ,"kommuner":['lolland.json','guldborgsund.json']},
-    {"name": "UU Mariagerfjord" ,"kommuner":['mariagerfjord.json']},
-    {"name": "UU Mors" ,"kommuner":['morsoe.json']},
-    {"name": "UU Nord" ,"kommuner":['gladsaxe.json','lyngby.json','gentofte.json','herlev.json']},
-    {"name": "UU Nordvestjylland","kommuner":['holstebro.json','struer.json','lemvig.json']},
-    {"name": "UU Nordvestsjælland" ,"kommuner":['odsherred.json','kalundborg.json','holbaek.json']},
-    {"name": "UU Odder Skanderborg" ,"kommuner":['odder.json','skanderborg.json']},
-    {"name": "UU Odense og Omegn" ,"kommuner":['nordfyns.json','kerteminde.json','nyborg.json','odense.json','assens.json']},
-    {"name": "UU Randers" ,"kommuner":['randers.json']},
-    {"name": "UU Rebild" ,"kommuner":['rebild.json']},
-    {"name": "UU Ringkøbing Skjern" ,"kommuner":['ringkobing.json']},
-    {"name": "UU Roskilde Lejre" ,"kommuner":['roskilde.json','lejre.json']},
-    {"name": "UU Silkeborg" ,"kommuner":['silkeborg.json']},
-    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.json','vordingborg.json','faxe.json']},
-    {"name": "UU Sjælsø" ,"kommuner":['alleroed.json','furesoe.json','hoersholm.json','rudersdal.json']},
-    {"name": "UU Skive" ,"kommuner":['skive.json']},
-    {"name": "UU Sønderborg" ,"kommuner":['soenderborg.json']},
-    {"name": "UU Thy" ,"kommuner":['thisted.json']},
-    {"name": "UU Tønder" ,"kommuner":['toender.json']},
-    {"name": "UU Tårnby" ,"kommuner":['taarnby.json','dragoe.json']},
+    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.kml','kommuner.kml','faxe.kml']},
+    {"name": "UU Aarhus Samsø","kommuner":['aarhus.kml','samsoe.kml']},
+    {"name": "UU Aalborg","kommuner":['aalborg.kml']},
+    {"name": "UU Aabenraa","kommuner":['aabenraa.kml']},
+    {"name": "UU Billund","kommuner":['billund.kml']},
+    {"name": "UU Bornholm","kommuner":['bornholm.kml']},
+    {"name": "UU Center Syd","kommuner": ['hvidovre.kml','broendby.kml','ishoej.kml']},
+    {"name": "UU Center Sydfyn","kommuner":['faaborg.kml','langeland.kml','svendborg.kml','aeroe.kml']},
+    {"name": "UU Djursland","kommuner": ['norddjurs.kml','syddjurs.kml']},
+    {"name": "UU Esbjerg","kommuner":['esbjerg.kml','fanoe.kml'] },
+    {"name": "UU Favrskov","kommuner":['favrskov.kml']},
+    {"name": "UU Frederiksberg" ,"kommuner":['frederiksberg.kml']},
+    {"name": "UU Frederikshavn" ,"kommuner":['frederikshavn.kml']},
+    {"name": "UU Gribskov" ,"kommuner":['gribskov.kml']},
+    {"name": "UU Haderslev" ,"kommuner":['haderslev.kml']},
+    {"name": "UU Halsnæs/Hillerød","kommuner":['halsnaes.kml','hilleroed.kml']},
+    {"name": "UU Hedensted" ,"kommuner":['hedensted.kml']},
+    {"name": "UU Herning" ,"kommuner":['herning.kml']},
+    {"name": "UU Horsens","kommuner": ['horsens.kml']},
+    {"name": "UU Hjørring","kommuner":['hjoerring.kml']},
+    {"name": "UU Ikast Brande" ,"kommuner":['ikast.kml']},
+    {"name": "UU Jammerbugt" ,"kommuner":['jammerbugt.kml']},
+    {"name": "UU Kolding" ,"kommuner":['kolding.kml']},
+    {"name": "UU København" ,"kommuner":['koebenhavn.kml']},
+    {"name": "UU Lillebælt" ,"kommuner":['fredericia.kml','middelfart.kml']},
+    {"name": "UU Lolland Falster" ,"kommuner":['lolland.kml','guldborgsund.kml']},
+    {"name": "UU Mariagerfjord" ,"kommuner":['mariagerfjord.kml']},
+    {"name": "UU Mors" ,"kommuner":['morsoe.kml']},
+    {"name": "UU Nord" ,"kommuner":['gladsaxe.kml','lyngby.kml','gentofte.kml','herlev.kml']},
+    {"name": "UU Nordvestjylland","kommuner":['holstebro.kml','struer.kml','lemvig.kml']},
+    {"name": "UU Nordvestsjælland" ,"kommuner":['odsherred.kml','kalundborg.kml','holbaek.kml']},
+    {"name": "UU Odder Skanderborg" ,"kommuner":['odder.kml','skanderborg.kml']},
+    {"name": "UU Odense og Omegn" ,"kommuner":['nordfyns.kml','kerteminde.kml','nyborg.kml','odense.kml','assens.kml']},
+    {"name": "UU Randers" ,"kommuner":['randers.kml']},
+    {"name": "UU Rebild" ,"kommuner":['rebild.kml']},
+    {"name": "UU Ringkøbing Skjern" ,"kommuner":['ringkobing.kml']},
+    {"name": "UU Roskilde Lejre" ,"kommuner":['roskilde.kml','lejre.kml']},
+    {"name": "UU Silkeborg" ,"kommuner":['silkeborg.kml']},
+    {"name": "UU Sjælland Syd" ,"kommuner":['naestved.kml','vordingborg.kml','faxe.kml']},
+    {"name": "UU Sjælsø" ,"kommuner":['alleroed.kml','furesoe.kml','hoersholm.kml','rudersdal.kml']},
+    {"name": "UU Skive" ,"kommuner":['skive.kml']},
+    {"name": "UU Sønderborg" ,"kommuner":['soenderborg.kml']},
+    {"name": "UU Thy" ,"kommuner":['thisted.kml']},
+    {"name": "UU Tønder" ,"kommuner":['toender.kml']},
+    {"name": "UU Tårnby" ,"kommuner":['taarnby.kml','dragoe.kml']},
     
               
   ]
@@ -98,53 +98,53 @@ var kommune_daekning = [
      /*
             
                 case  "UU V Køge Bugt":
-                        res = ['greve.json','koege.json','solroed.json','stevns.json'];
+                        res = ['greve.kml','koege.kml','solroed.kml','stevns.kml'];
                         break;
                 case  "UU Varde":
-                        res = ['varde.json'];
+                        res = ['varde.kml'];
                         break;
                 case  "UU Vejle Study Support Center":
-                        res = ['vejle.json'];
+                        res = ['vejle.kml'];
                         break;
                 case  "UU Brønderslev":
-                        res = ['broenderslev.json'];
+                        res = ['broenderslev.kml'];
                         break;
                     
                  case "UU Vallensbæk":
-                        res = ['vallensbaek.json'];                      
+                        res = ['vallensbaek.kml'];                      
                         break;             
                 
                       
                 case  "UU Vejen":
-                        res = ['vejen.json'];
+                        res = ['vejen.kml'];
                         break;             
                    
                 case  "UU Vest Region Hovedstaden":
-                        res = ['egedal.json','frederikssund.json'];
+                        res = ['egedal.kml','frederikssund.kml'];
                         break;
                 case  "UU Vestegnen":
-                        res = ['albertslund.json','glostrup.json','ballerup.json','hoejetaastrup.json','roedovre.json'];
+                        res = ['albertslund.kml','glostrup.kml','ballerup.kml','hoejetaastrup.kml','roedovre.kml'];
                         break;
                 case  "UU Vesthimmerland":
-                        res = ['vesthimmerlands.json'];
+                        res = ['vesthimmerlands.kml'];
                         break;
                 case  "UU Vestsjælland":
-                        res = ['ringsted.json','soroe.json','slagelse.json'];
+                        res = ['ringsted.kml','soroe.kml','slagelse.kml'];
                         break;
                 case   "UU Viborg":
-                        res = ['viborg.json'];
+                        res = ['viborg.kml'];
                         break;
                 case  "UU Øresund":
-                        res = ['fredensborg.json','helsingoer.json'];
+                        res = ['fredensborg.kml','helsingoer.kml'];
                         break;
                 case  "UU Aabenraa":
-                        res = ['aabenraa.json'];
+                        res = ['aabenraa.kml'];
                         break;
                 case   "UU Aalborg":
-                        res = ['aalborg.json','laesoe.json'];
+                        res = ['aalborg.kml','laesoe.kml'];
                         break;
                 case  "UU Aarhus Samsø":
-                        res = ['aarhus.json','samsoe.json'];
+                        res = ['aarhus.kml','samsoe.kml'];
                         break;
                 
                 */
