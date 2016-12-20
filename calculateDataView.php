@@ -2,6 +2,7 @@
   require 'mapclasses/Map.php';
   $podioData = new Map(6229597);
   $podioFieldData = $podioData->exValues;
+  print_r($podioFieldData);
   
   
 ?>
