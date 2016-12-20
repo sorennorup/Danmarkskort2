@@ -31,12 +31,11 @@
     
     </style>
       </head>
-      <body id = "body" onload="initialize(dArray)">
+      <body onload="initialize(dArray)">
          
         <h1>Calculate array of data and place it in intervals of quartines</h1>
         <div id = "box"> </div>
         <div id = "map"></div>
-        <div id = "infoBox"></div>
      
         
     <script>
@@ -44,7 +43,10 @@
       var centername;
       var dArray = [5,30,23,10,25,22,30,27,17]
       var getData = new CalculateData(dArray)
+      //alert(getData.calMedian());
+      
       var map;
+      
       
       /**
        * Initializes the map and calls the function that loads the Geojson layer.
@@ -54,6 +56,7 @@
         initialize(dArray)
       }
       
+      
       function initMap() {
        
         map = new google.maps.Map(document.getElementById('map'), {
@@ -61,69 +64,45 @@
           zoom: 9,
           mapTypeId: 'terrain'
         });
-        var contentString;
-        var position;
+        
         var color;
         var infoWindow = new google.maps.InfoWindow;
-        
           // create a new dataviewcontroller object
         var dataView = new CalculateDataViewController(dArray)
-        
         // this is going to be a field value from Podio
         var data  =  10;
-        
         //set the fillcolor variable
         color = dataView.calculateColor(data);
-        
         //loop through the json object
-        for(var j = 0; j < centerInfo.length; j++){
-            centername = centerInfo[j][0]
-            leadernaem = centerInfo[j][1]
-            contentString = '<h5>'+ leadernaem + '</h5><div style = "width:100px; height:50px; font-size:25px;text-align: center;" >' + data + ' % </div>';
-            map.data.addListener('mouseover', function(event) {
-              var proptobj = event.feature;
-              //document.getElementById("infoBox").innerHTML = 
-            infoWindow.setContent(proptobj.getProperty('name') +"</br>"+proptobj.getProperty('uu-center'))
-             
-            infoWindow.setPosition(new google.maps.LatLng(proptobj.getProperty('lat'),proptobj.getProperty('lng')));
-            infoWindow.open(map);
-            
-        });
-         
-          // close the infowindow
-            map.data.addListener('mouseout',function(event){
-              document.getElementById("infoBox").textContent = " "
-
-            infoWindow.close(map)
-          
-        });
-      
-              // open an infowindow when mouseover the whole centerarea
-            for(var k = 0; k < kommune_daekningJson.length; k++){
-                    
-             if(centername == kommune_daekningJson[k].name){
-              //map.data.feature.setProperty('leadername',centerInfo[j][1] );
-               
-            for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
-              
-              var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];
-              
+        for(var j = 0; j < kommune_daekningJson.length; j++){
+            centername = centerInfo[j][0] 
+        // find the matching center data and loop through all the kommunerfiles
+          if (kommune_daekningJson[0].name == centername ){
+            for(var i = 0; i <= kommune_daekningJson[0].kommuner.length; i++){
+              var res = "Json-files/"+kommune_daekningJson[0].kommuner[i];    
               map.data.loadGeoJson(res);
-            }
                
-           }
-        }
-      
-          
+            }
+          }
            // style the color of the layer with color variable
           map.data.setStyle({
             fillColor: color,       
         });
+            // open an infowindow when mouseover the whole centerareaj
             
-           
+          map.data.addListener('mouseover', function(event) {
+            var contentString = '<h5>'+ kommune_daekningJson[0].name+'</h5><div style = "width:100px; height:50px; font-size:25px;text-align: center;" >' + data + ' % </div>';
+            infoWindow.setContent(contentString);
+            infoWindow.setPosition(new google.maps.LatLng(55.255019,12.119075));
+            infoWindow.open(map);
+});
+          // close the infowindow
+            map.data.addListener('mouseout',function(event){
+            infoWindow.close(map)
+          
+        });
        }
-          
-          
+  
       }
 
     </script>

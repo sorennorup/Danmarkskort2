@@ -40,7 +40,7 @@ Podio::setup($client_secret,$client_token , array(
   
    public function getAllFieldValues(){     
       $i=0;
-      $items =  PodioItem::filter($this->app_id,array('limit' => 100, 'sort_by' => 'title',"sort_desc" => FALSE,));
+      $items =  PodioItem::filter($this->app_id,array('limit' => 100));
     
       foreach ($items['items'] as $item) {
   // Now you can extract values from the individual item. E.g.:
