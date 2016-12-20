@@ -1,9 +1,6 @@
      // Markerer med farve UU centres dækning af kommuner
      
-     var url = "http://uudanmark.dk/kommuner-kml-files/";
-      
- 
-   
+     var url = "http://uudanmark.dk/kommuner-kml-files/";         
              
     function getKommune(mapId,arr){
             var map = new google.maps.Map(document.getElementById(mapId));
@@ -42,15 +39,14 @@
                 }                           
                               
         }
-         
-           
+                
          // Displays centerinfo in the infobox
          document.getElementById("info").innerHTML = 
                       
-                      "<div class = 'overskrift'><b>UU Center: </b></div>" +   arr[0] +
-                      "</br><b><div class = 'overskrift'> Leder:</b></div>" +  arr[1] +
-                      "</br><b><div class = 'overskrift'> Adresse:</b></div>"+ arr[2] +
-                      "</br><b><div class = 'overskrift'> Dækker:</b> </div>"+ arr[8];
+                "<div class = 'overskrift'><b>UU Center: </b></div>" +   arr[0] +
+                "</br><b><div class = 'overskrift'> Leder:</b></div>" +  arr[1] +
+                "</br><b><div class = 'overskrift'> Adresse:</b></div>"+ arr[2] +
+                "</br><b><div class = 'overskrift'> Dækker:</b> </div>"+ arr[8];
                        
           return res;       
         
@@ -59,7 +55,7 @@
    function backToMap(){
         document.getElementById("buttonId").addEventListener('click',function(){
                  
-                        initialize(7,'1','googleMap');
+                initialize(7,'1','googleMap');
                 
                 
                 })
