@@ -56,6 +56,7 @@ class Map{
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript" src="js/uucentre.js"></script>
             <script type="text/javascript" src="js/uucentrelist.js"></script>
+            <script type="text/javascript" src="js/uucentrelistKml.js"></script>
             <link rel="stylesheet" type="text/css" href = "css/style.css">
             <script>
              google.charts.load('current', {packages: ['corechart']});
