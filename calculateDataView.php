@@ -10,7 +10,7 @@
     <head>
       <script type="text/javascript" src="js/CalculateDataViewController.js"></script>
           <script type="text/javascript" src="js/calculateDataController.js"></script>
-           <script src="js/uucentrelist.js"></script>
+           <script src="js/uucentrelistJson.js"></script>
            <style>
       html, body {
         height: 370px;
