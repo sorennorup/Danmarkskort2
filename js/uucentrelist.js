@@ -95,7 +95,29 @@ var kommune_daekning = [
               
   ]
   
-     /*
+               
+                
+                
+                
+                   
+              
+                
+              
+        
+              
+                
+              
+               
+                
+                
+               
+                
+                
+               
+               
+                
+            /*  
+               
             
                 case  "UU V Køge Bugt":
                         res = ['greve.json','koege.json','solroed.json','stevns.json'];
