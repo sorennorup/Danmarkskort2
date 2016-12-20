@@ -1,4 +1,4 @@
-var kommune_daekning = [
+/*var kommune_daekning = [
     {"name": "UU Aarhus Samsø","kommuner":['aarhus.kml','samsoe.kml']},
     {"name": "UU Aalborg","kommuner":['aalborg.kml']},
     {"name": "UU Aabenraa","kommuner":['aabenraa.kml']},
