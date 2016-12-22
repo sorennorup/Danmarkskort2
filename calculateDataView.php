@@ -74,14 +74,14 @@
        
         // this is going to be a field value from Podio
         var data  =  10;
-        
+        color = red;
         //set the fillcolor variable
         
         google.maps.event.addListenerOnce(map.data, 'addfeature', function() {
           google.maps.event.trigger(document.getElementById('data'),
               'change');
         });
-    
+          //loadCensusData(centerInfo);
         
         //loop through the json object
         for(var j = 0; j < centerInfo.length; j++){
@@ -132,20 +132,15 @@
         e.feature.setProperty('state', 'hover');
          for(var i = 0; i < centerInfo.length; i++){
           if (e.feature.getProperty('uucenter') == centerInfo[i][0]) {
-            e.feature.setProperty('myData', 20);
-            var d = e.feature.getProperty('myData')
-            alert(d)
+           // e.feature.setProperty('myData', 20);
+
              
           }
           
           } 
-        
-        
         // update the label
         document.getElementById('box').textContent =
             e.feature.getProperty('uucenter');
-                       
-
       }
       
       
@@ -177,7 +172,26 @@
           
         };
       }
+      /*function loadCensusData(arr = []) {
+       
+          //loop
+          arr.forEach(function(row) {
+            var centerVar = row[0][0] ;
+            alert(centerVar)
+            
+            // update the existing row with the new data
+            /*map.data
+              .getFeatureById(uucenter)
+              .setProperty('data', centerVar});
+*/
+          // update and display the legend
+           
+        
+
+      
       }
+      }/*
+      
   
 
     </script>

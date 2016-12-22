@@ -133,7 +133,7 @@
         google.maps.event.addListenerOnce(map.data, 'addfeature', function() {
           google.maps.event.trigger(document.getElementById('census-variable'),
               'change');
-          alert('now')
+          
         });
       }
 
@@ -149,10 +149,11 @@
         xhr.onload = function() {
           var censusData = JSON.parse(xhr.responseText);
           censusData.shift(); // the first row contains column names
+          //loop
           censusData.forEach(function(row) {
             var censusVariable = parseFloat(row[0]);
             var stateId = row[1];
-
+           
             // keep track of min and max values
             if (censusVariable < censusMin) {
               censusMin = censusVariable;
@@ -160,7 +161,7 @@
             if (censusVariable > censusMax) {
               censusMax = censusVariable;
             }
-
+             
             // update the existing row with the new data
             map.data
               .getFeatureById(stateId)
