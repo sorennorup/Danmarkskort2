@@ -8080,6 +8080,7 @@
                 ]
             },
             "properties": {
+                "uucenter": "UU Sjælland Syd",
                 "name": "Vordingborg Kommune",
                 "styleUrl": "#yellowLineGreenPoly"
             },

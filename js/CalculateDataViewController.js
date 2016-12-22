@@ -26,7 +26,9 @@
     // calculate what color the area on map should have
    this.calculateColor = function(number){
     var color;
-         
+         if (number) {
+           
+        
         if(number < this.datObj.findLowerQuartile())
             {color = "green"}
           else if (number > this.datObj.findLowerQuartile() && number < this.datObj.calMedian()) {
@@ -36,6 +38,7 @@
             color = "red"
           
         }
+         }
          return color;
     }
      

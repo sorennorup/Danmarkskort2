@@ -1,8 +1,8 @@
 <?php
   require 'mapclasses/Map.php';
-  $podioData = new Map(6229597);
+  $podioData = new Map(17379371);
   $podioFieldData = $podioData->exValues;
-  print_r($podioFieldData);
+ 
   
   
 ?>
@@ -32,7 +32,7 @@
     
     </style>
       </head>
-      <body onload="initialize(dArray)">
+      <body onload = " initialize(dArray)">
          
         <h1>Calculate array of data and place it in intervals of quartines</h1>
         <div id = "box"> </div>
@@ -44,7 +44,7 @@
       var centername;
       var dArray = [5,30,23,10,25,22,30,27,17]
       var getData = new CalculateData(dArray)
-      //alert(getData.calMedian());
+     
       
       var map;
       
@@ -76,42 +76,109 @@
         var data  =  10;
         
         //set the fillcolor variable
-        color = dataView.calculateColor(data);
-       
+        
+        google.maps.event.addListenerOnce(map.data, 'addfeature', function() {
+          google.maps.event.trigger(document.getElementById('data'),
+              'change');
+        });
+    
+        
         //loop through the json object
         for(var j = 0; j < centerInfo.length; j++){
-            centername = centerInfo[j][0] 
+            centername = centerInfo[j][0]
+            
+             
+           
         
         // find the matching center data and loop through all the kommunerfiles
           for(var k = 0; k < kommune_daekningJson.length; k++){
+               
+            if (centername == kommune_daekningJson[k].name ) {
+              alert(kommune_daekningJson[k].name)
+               data = centerInfo[j][10]
+              
+            }
           if (kommune_daekningJson[k].name == centername ){
+              
+               
+        
             for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
+             
               var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
-              map.data.loadGeoJson(res);
+              map.data.loadGeoJson(res)
+              
+              
+              //.setProperty('mydata',data);
+              
+              
                
             }
-          }
-          }
-           // style the color of the layer with color variable
-          map.data.setStyle({
-            fillColor: color,       
-        });
-            // open an infowindow when mouseover the whole centerareaj
             
-          map.data.addListener('mouseover', function(event) {
-            var contentString = '<h5>'+ kommune_daekningJson[0].name+'</h5><div style = "width:100px; height:50px; font-size:25px;text-align: center;" >' + data + ' % </div>';
-            infoWindow.setContent(contentString);
-            infoWindow.setPosition(new google.maps.LatLng(55.255019,12.119075));
-            infoWindow.open(map);
-});
-          // close the infowindow
-            map.data.addListener('mouseout',function(event){
-            infoWindow.close(map)
-          
+                map.data.setStyle({
+                fillColor: color       
         });
+          }
+          }
+         
+           // style the color of the layer with color variable
+        
        }
-  
+   map.data.addListener('mouseover', mouseInToRegion);
+        map.data.addListener('mouseout', mouseOutOfRegion);
+        
+        function mouseInToRegion(e) {
+            
+        // set the hover state so the setStyle function can change the border
+        e.feature.setProperty('state', 'hover');
+         for(var i = 0; i < centerInfo.length; i++){
+          if (e.feature.getProperty('uucenter') == centerInfo[i][0]) {
+            e.feature.setProperty('myData', 20);
+            var d = e.feature.getProperty('myData')
+            alert(d)
+             
+          }
+          
+          } 
+        
+        
+        // update the label
+        document.getElementById('box').textContent =
+            e.feature.getProperty('uucenter');
+                       
+
       }
+      
+      
+
+      /**
+       * Responds to the mouse-out event on a map shape (state).
+       *
+       * @param {?google.maps.MouseEvent} e
+       */
+      function mouseOutOfRegion(e) {
+        // reset the hover state, returning the border to normal
+        e.feature.setProperty('state', 'normal');
+      }
+     
+    function styleFeature(feature) {
+        
+        // delta represents where the value sits between the min and max
+        var data = feature.getProperty('data') 
+         
+        var color = dataView.calculateColor(data);
+        alert(color)
+
+        
+        
+        return {
+          
+          fillColor: color,
+          fillOpacity: 0.75,
+          
+        };
+      }
+      }
+  
 
     </script>
     <script async defer

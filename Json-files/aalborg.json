@@ -4983,6 +4983,7 @@
                 ]
             },
             "properties": {
+                "uucenter": "UU Aalborg",
                 "name": "Aalborg",
                 "styleUrl": "#default",
                 "styleHash": "2ddbd54f",
