@@ -1020,6 +1020,7 @@
                 ]
             },
             "properties": {
+                "uucenter": "UU Sj¾lland Syd",
                 "name": "Faxe Kommune",
                 "styleUrl": "none",
                 "styleHash": "2ddbd54f",
@@ -1037,7 +1038,7 @@
                 {"procent": 10}
             ],
             
-            "id": "faxe"
+            "id": "UU Sj¾lland Syd"
             
             
         }

@@ -40,12 +40,18 @@
      
         
     <script>
+      // turn the php array into a javascript array
       var centerInfo = <?php echo json_encode($podioFieldData); ?>;
-      var centername;
-      var dArray = [5,30,23,10,25,22,30,27,17]
-      var getData = new CalculateData(dArray)
-     
       
+      var centername;
+      // The data input
+      var dArray = [5,30,23,10,25,22,30,27,17]
+      
+      var getData = new CalculateData(dArray)
+      
+      // create a new dataviewcontroller object
+      var dataView = new CalculateDataViewController(dArray)
+     
       var map;
       
       
@@ -62,122 +68,98 @@
        
         map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(55.1916538649462,11.678901769377), 
-          zoom: 9,
+          zoom: 7,
           mapTypeId: 'terrain'
         });
+       
         
         var color;
         var infoWindow = new google.maps.InfoWindow;
-        
-          // create a new dataviewcontroller object
-        var dataView = new CalculateDataViewController(dArray)
-       
-        // this is going to be a field value from Podio
-        var data  =  10;
-        
-        //set the fillcolor variable
-        
-        google.maps.event.addListenerOnce(map.data, 'addfeature', function() {
-          google.maps.event.trigger(document.getElementById('data'),
-              'change');
-        });
-    
-        
+
+  
         //loop through the json object
         for(var j = 0; j < centerInfo.length; j++){
-            centername = centerInfo[j][0]
-            
-             
-           
+            centername = centerInfo[j][0] 
         
         // find the matching center data and loop through all the kommunerfiles
           for(var k = 0; k < kommune_daekningJson.length; k++){
                
             if (centername == kommune_daekningJson[k].name ) {
-              alert(kommune_daekningJson[k].name)
-               data = centerInfo[j][10]
-              
-            }
-          if (kommune_daekningJson[k].name == centername ){
-              
-               
-        
-            for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
              
-              var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
-              map.data.loadGeoJson(res)
+                data = centerInfo[j][10]
               
-              
-              //.setProperty('mydata',data);
-              
-              
-               
             }
-            
-                map.data.setStyle({
-                fillColor: color       
+              if (kommune_daekningJson[k].name == centername ){
+              
+                for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
+             
+                var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
+                map.data.loadGeoJson(res);
+ 
+              }
+               
+          }
+                  
+      }
+          // set the colors of the mapshapes
+          map.data.setStyle(function(feature){
+                  
+                  //loop through the centerarray
+                for(var i = 0; i < centerInfo.length;i++){
+                  
+                  // set the colorproperty if the property of the json dataobject is the name of the uucenter 
+                  if(feature.getProperty('uucenter')  == centerInfo[i][0] ){
+                    
+                    // call the calculateColormethod to findout the color
+                    color = dataView.calculateColor(centerInfo[i][10])                    
+                  }
+                }
+                  // return the style object
+                return{
+                  
+                    fillColor: color
+                }
+                  
         });
-          }
-          }
-         
-           // style the color of the layer with color variable
-        
+                  
        }
-   map.data.addListener('mouseover', mouseInToRegion);
+           // add listeners to the map.data object   
+        map.data.addListener('mouseover', mouseInToRegion);
         map.data.addListener('mouseout', mouseOutOfRegion);
         
+        
+        /**
+       * Responds to the mouse-over event on a map shape (uucenter).
+       *
+       * @param {?google.maps.MouseEvent} e
+       */
         function mouseInToRegion(e) {
             
         // set the hover state so the setStyle function can change the border
-        e.feature.setProperty('state', 'hover');
+         e.feature.setProperty('state', 'hover');
          for(var i = 0; i < centerInfo.length; i++){
-          if (e.feature.getProperty('uucenter') == centerInfo[i][0]) {
-            e.feature.setProperty('myData', 20);
-            var d = e.feature.getProperty('myData')
-            alert(d)
-             
-          }
+           if (e.feature.getProperty('uucenter') == centerInfo[i][0]) {
+            
+             var d = e.feature.getProperty('newprop')
+             infowindow
+                   
+            }
           
           } 
         
-        
-        // update the label
-        document.getElementById('box').textContent =
-            e.feature.getProperty('uucenter');
-                       
-
-      }
-      
-      
-
+        }
       /**
-       * Responds to the mouse-out event on a map shape (state).
+       * Responds to the mouse-out event on a map shape (uucenter).
        *
        * @param {?google.maps.MouseEvent} e
        */
       function mouseOutOfRegion(e) {
         // reset the hover state, returning the border to normal
         e.feature.setProperty('state', 'normal');
-      }
-     
-    function styleFeature(feature) {
-        
-        // delta represents where the value sits between the min and max
-        var data = feature.getProperty('data') 
-         
-        var color = dataView.calculateColor(data);
-        alert(color)
-
-        
-        
-        return {
+        }
           
-          fillColor: color,
-          fillOpacity: 0.75,
-          
-        };
-      }
-      }
+    }
+      
   
 
     </script>

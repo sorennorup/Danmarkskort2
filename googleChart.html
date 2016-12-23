@@ -45,6 +45,7 @@
             hsl(102, 78%, 41%) 67%,
             hsl(127, 81%, 37%) 83%,
             hsl(151, 83%, 34%) 100%);
+          
           flex: 1;
           -webkit-box-flex: 1;
           margin: 0 5px;
@@ -115,6 +116,7 @@
         var selectBox = document.getElementById('census-variable');
         google.maps.event.addDomListener(selectBox, 'change', function() {
           clearCensusData();
+          
           loadCensusData(selectBox.options[selectBox.selectedIndex].value);
         });
 
@@ -133,7 +135,7 @@
         google.maps.event.addListenerOnce(map.data, 'addfeature', function() {
           google.maps.event.trigger(document.getElementById('census-variable'),
               'change');
-          alert('now')
+         
         });
       }
 
@@ -148,11 +150,17 @@
         xhr.open('GET', variable + '.json');
         xhr.onload = function() {
           var censusData = JSON.parse(xhr.responseText);
-          censusData.shift(); // the first row contains column names
+          
+          censusData.shift();
+          // alert(censusData)
+          // the first row contains column names
+          
           censusData.forEach(function(row) {
             var censusVariable = parseFloat(row[0]);
             var stateId = row[1];
-
+             
+            
+           
             // keep track of min and max values
             if (censusVariable < censusMin) {
               censusMin = censusVariable;
@@ -164,9 +172,10 @@
             // update the existing row with the new data
             map.data
               .getFeatureById(stateId)
-              .setProperty('census_variable', censusVariable);
+              .setProperty('anothername', censusVariable);
+              
           });
-
+      
           // update and display the legend
           document.getElementById('census-min').textContent =
               censusMin.toLocaleString();
@@ -181,7 +190,7 @@
         censusMin = Number.MAX_VALUE;
         censusMax = -Number.MAX_VALUE;
         map.data.forEach(function(row) {
-          row.setProperty('census_variable', undefined);
+          row.setProperty('anothername', undefined);
         });
         document.getElementById('data-box').style.display = 'none';
         document.getElementById('data-caret').style.display = 'none';
@@ -194,27 +203,30 @@
        *
        * @param {google.maps.Data.Feature} feature
        */
-      function styleFeature(feature) {
+       function styleFeature(feature) {
         var low = [5, 69, 54];  // color of smallest datum
         var high = [151, 83, 34];   // color of largest datum
 
         // delta represents where the value sits between the min and max
-        var delta = (feature.getProperty('census_variable') - censusMin) /
+        
+        var delta = (feature.getProperty('anothername') - censusMin) /
             (censusMax - censusMin);
+            
+           
 
         var color = [];
         for (var i = 0; i < 3; i++) {
           // calculate an integer color based on the delta
           color[i] = (high[i] - low[i]) * delta + low[i];
         }
-
+              // gets the census_variabe from the extern data
         // determine whether to show this shape or not
         var showRow = true;
-        if (feature.getProperty('census_variable') == null ||
-            isNaN(feature.getProperty('census_variable'))) {
+        if (feature.getProperty('anothername') == null ||
+            isNaN(feature.getProperty('anothername'))) {
           showRow = false;
         }
-
+         
         var outlineWeight = 0.5, zIndex = 1;
         if (feature.getProperty('state') === 'hover') {
           outlineWeight = zIndex = 2;
@@ -236,18 +248,20 @@
        * @param {?google.maps.MouseEvent} e
        */
         function mouseInToRegion(e) {
-            alert(e.feature.getProperty('DATA'))
+           
         // set the hover state so the setStyle function can change the border
         e.feature.setProperty('state', 'hover');
-
-        var percent = (e.feature.getProperty('census_variable') - censusMin) /
+        e.feature.setProperty('STATE', 'new property')
+      //alert(e.feature.getProperty('GEO_ID'))
+       
+        var percent = (e.feature.getProperty('anothername') - censusMin) /
             (censusMax - censusMin) * 100;
         
         // update the label
         document.getElementById('data-label').textContent =
             e.feature.getProperty('NAME');
         document.getElementById('data-value').textContent =
-            e.feature.getProperty('census_variable').toLocaleString();
+            e.feature.getProperty('anothername').toLocaleString();
         document.getElementById('data-box').style.display = 'block';
         document.getElementById('data-caret').style.display = 'block';
         document.getElementById('data-caret').style.paddingLeft = percent + '%';

@@ -2529,7 +2529,9 @@
                 ]
             },
             "properties": {
-                "name": "N�stved Kommune",
+                
+                "uucenter":"UU Sjælland Syd",
+                "name": "Næstved Kommune",
                 "styleUrl": "#default",
                 "styleHash": "2ddbd54f",
                 "styleMapHash": {
@@ -2542,7 +2544,7 @@
                 "fill": "#00008b",
                 "fill-opacity": 0.6
             },
-            "id": "naestved"
+            "id": "UU Sjælland Syd"
         }
     ]
 }
