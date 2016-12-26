@@ -49,6 +49,7 @@ var kommune_daekning = [
     {"name": "UU Sjælland Syd" ,"kommuner":['naestved.json','kommuner.json','faxe.json']},
     {"name": "UU Aarhus Samsø","kommuner":['aarhus.json','samsoe.json']},
     {"name": "UU Aalborg","kommuner":['aalborg.json']},
+     {"name": "UU Viborg","kommuner":['viborg.json']}
    /* {"name": "UU Aabenraa","kommuner":['aabenraa.json']},
     {"name": "UU Billund","kommuner":['billund.json']},
     {"name": "UU Bornholm","kommuner":['bornholm.json']},

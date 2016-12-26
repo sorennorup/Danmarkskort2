@@ -8072,8 +8072,8 @@
                     {
                         "type": "Point",
                         "coordinates": [
-                            12.119075,
-                            55.255019,
+                            0,
+                            0,
                             0
                         ]
                     }
@@ -8084,7 +8084,7 @@
                 "name": "Vordingborg Kommune",
                 "styleUrl": "#yellowLineGreenPoly"
             },
-            "id": "UU Sjælland Syd"
+            "id": "vordingborg"
         }
     ]
 }

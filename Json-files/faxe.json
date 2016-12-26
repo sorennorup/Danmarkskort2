@@ -1011,16 +1011,15 @@
                     {
                         "type": "Point",
                         "coordinates": [
-                            12.119075,
-                            55.255019,
-                                
+                            0,
+                            0,
                             0
                         ]
                     }
                 ]
             },
             "properties": {
-                "uucenter": "UU Sjælland Syd",
+                "uucenter": "UU Sj√¶lland Syd",
                 "name": "Faxe Kommune",
                 "styleUrl": "none",
                 "styleHash": "2ddbd54f",
@@ -1038,7 +1037,7 @@
                 {"procent": 10}
             ],
             
-            "id": "UU Sjælland Syd"
+            "id": "UU Sj√¶lland Syd"
             
             
         }

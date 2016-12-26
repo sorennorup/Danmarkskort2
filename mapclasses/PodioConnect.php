@@ -53,7 +53,7 @@ Podio::setup($client_secret,$client_token , array(
                  $this->allValue[$j] = $field->humanized_value();
                }
                  else{
-                     $this->allValue[$j] = " ikke besvaret ";
+                     //$this->allValue[$j] = "ikke besvaret";
                   }
         }
       $allItems[$i] = $this->allValue;

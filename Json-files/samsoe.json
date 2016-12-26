@@ -2803,16 +2803,16 @@
                     {
                         "type": "Point",
                         "coordinates": [
-                            10.5941590553,
-                            55.832098216,
+                            0,
+                            0,
                             0
                         ]
                     }
                 ]
             },
             "properties": {
-                "uucenter": "UU Aarhus Sams¿",
-                "name": "Samsø Kommune",
+                "uucenter": "UU Aarhus SamsÃ¸",
+                "name": "SamsÃ¸ Kommune",
                 "styleUrl": "#default",
                 "styleHash": "2ddbd54f",
                 "styleMapHash": {
@@ -2825,7 +2825,7 @@
                 "fill": "#00008b",
                 "fill-opacity": 0.6
             },
-            "id": "UU Aarhus Sams¿"
+            "id": "UU Aarhus SamsÂ¯"
         }
     ]
 }

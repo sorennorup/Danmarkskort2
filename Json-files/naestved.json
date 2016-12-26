@@ -2521,16 +2521,15 @@
                     {
                         "type": "Point",
                         "coordinates": [
-                            12.119075,
-                            55.255019,
+                            0,
+                            0,
                             0
                         ]
                     }
                 ]
             },
             "properties": {
-                
-                "uucenter":"UU Sjælland Syd",
+                "uucenter": "UU Sjælland Syd",
                 "name": "Næstved Kommune",
                 "styleUrl": "#default",
                 "styleHash": "2ddbd54f",
@@ -2544,7 +2543,7 @@
                 "fill": "#00008b",
                 "fill-opacity": 0.6
             },
-            "id": "UU Sjælland Syd"
+            "id": "naestved"
         }
     ]
 }

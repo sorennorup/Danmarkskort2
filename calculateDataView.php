@@ -2,7 +2,7 @@
   require 'mapclasses/Map.php';
   $podioData = new Map(17379371);
   $podioFieldData = $podioData->exValues;
- 
+  
   
   
 ?>
@@ -45,7 +45,12 @@
       
       var centername;
       // The data input
-      var dArray = [5,30,23,10,25,22,30,27,17]
+      var dArray = [5,15,20,17,29];
+           
+            
+               
+      
+     
       
       var getData = new CalculateData(dArray)
       
@@ -53,6 +58,8 @@
       var dataView = new CalculateDataViewController(dArray)
      
       var map;
+      
+        var infoWindow = new google.maps.InfoWindow;
       
       
       /**
@@ -71,57 +78,62 @@
           zoom: 7,
           mapTypeId: 'terrain'
         });
-       
         
-        var color;
-        var infoWindow = new google.maps.InfoWindow;
-
+        //var color;
+      
   
         //loop through the json object
         for(var j = 0; j < centerInfo.length; j++){
-            centername = centerInfo[j][0] 
+            centername = centerInfo[j][0]
+            
         
         // find the matching center data and loop through all the kommunerfiles
-          for(var k = 0; k < kommune_daekningJson.length; k++){
+           for(var k = 0; k < kommune_daekningJson.length; k++){
                
-            if (centername == kommune_daekningJson[k].name ) {
-             
-                data = centerInfo[j][10]
+                  if (centername == kommune_daekningJson[k].name ) {
+                       
+                      data = centerInfo[j][11]
               
-            }
-              if (kommune_daekningJson[k].name == centername ){
+                    }
+                      if (kommune_daekningJson[k].name == centername ){
               
                 for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
              
-                var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
-                map.data.loadGeoJson(res);
- 
-              }
-               
-          }
-                  
-      }
-          // set the colors of the mapshapes
-          map.data.setStyle(function(feature){
+                  var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
+                  map.data.loadGeoJson(res);
+                  map.data.setStyle(function(feature){
                   
                   //loop through the centerarray
-                for(var i = 0; i < centerInfo.length;i++){
+               
                   
-                  // set the colorproperty if the property of the json dataobject is the name of the uucenter 
-                  if(feature.getProperty('uucenter')  == centerInfo[i][0] ){
-                    
+                  // set the colorproperty if the property of the json dataobject is the name of the uucenter
+                     for(var p = 0; p < centerInfo.length; p++){
+                      
+                      if(feature.getProperty('uucenter')  == centerInfo[p][0] ){
+                       
+                       
+                       feature.setProperty('colVar', centerInfo[p][11])
+                      var colorvariable = feature.getProperty('colVar')
+                      
                     // call the calculateColormethod to findout the color
-                    color = dataView.calculateColor(centerInfo[i][10])                    
-                  }
-                }
+                        var color = dataView.calculateColor(colorvariable)
+                        
+                   }
+                  
+              
+                     }
+                
                   // return the style object
-                return{
-                  
-                    fillColor: color
+                return{              
+                        fillColor: color
+                        
                 }
-                  
-        });
-                  
+           });          
+               }           
+           }                
+       }
+          // set the colors of the mapshapes
+                
        }
            // add listeners to the map.data object   
         map.data.addListener('mouseover', mouseInToRegion);
@@ -141,13 +153,11 @@
            if (e.feature.getProperty('uucenter') == centerInfo[i][0]) {
             
              var d = e.feature.getProperty('newprop')
-             infowindow
-                   
-            }
-          
-          } 
-        
-        }
+             alert(centerInfo[i][0]+" "+centerInfo[i][11]+" %")
+                          
+            }     
+        }      
+    }
       /**
        * Responds to the mouse-out event on a map shape (uucenter).
        *
@@ -155,7 +165,7 @@
        */
       function mouseOutOfRegion(e) {
         // reset the hover state, returning the border to normal
-        e.feature.setProperty('state', 'normal');
+        //e.feature.setProperty('state', 'normal');
         }
           
     }

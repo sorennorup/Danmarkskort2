@@ -29,9 +29,9 @@
          if (number) {
            
         
-        if(number < this.datObj.findLowerQuartile())
+        if(number < this.datObj.findLowerQuartile() || number == this.datObj.findLowerQuartile())
             {color = "green"}
-          else if (number > this.datObj.findLowerQuartile() && number < this.datObj.calMedian()) {
+          else if (number > this.datObj.findLowerQuartile() && number < this.datObj.calMedian() || number == this.datObj.findLowerQuartile() || number == this.datObj.calMedian() ) {
             color = "yellow"
         }
             else if (number > this.datObj.calMedian()){
