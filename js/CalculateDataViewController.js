@@ -16,10 +16,11 @@
    this.dataInBox = function(){
      //first line show the category with the lowest interval
     var l1 = this.displayColors("green") + this.datObj.findLowestValue() + "% - "+ this.datObj.findLowerQuartile()+ "%" ;
+     
      //second line show the category with medium interval
-    var l2 = this.displayColors("yellow") + parseInt(this.datObj.findLowerQuartile()+1)+ " % - "+ this.datObj.calMedian()+ " % ";
+    var l2 = this.displayColors("yellow") + parseInt(this.datObj.findLowerQuartile()+1)+ " % - "+ parseInt(this.datObj.calMedian()-1)+ " % ";
        //third line show the category with the highest interval
-    var l3 = this.displayColors("red") + parseInt(this.datObj.calMedian()+1)+ " % - "+ this.datObj.findHigestValue()+ " % ";
+    var l3 = this.displayColors("red") + parseInt(this.datObj.calMedian())+ " % - "+ this.datObj.findHigestValue()+ " % ";
        
      return  l1 +  "</br></br>" + l2 + "</br></br>"+l3 + "</br></br>"
   }
@@ -38,6 +39,9 @@
             color = "red"
           
         }
+        else {
+            color = "white"
+        }
          }
          return color;
     }
@@ -50,3 +54,23 @@
     
     
   }
+  function createDataArray(value,obj1,obj2){
+     var arr = []
+      for(var i = 0; i < obj1.length; i++ ){
+         for(var j = 0; j < obj2.length; j++) {    
+           if (obj1[i].name == obj2[j][0] && obj2[j][value] != 0 ) {
+            var num = obj2[j][value];
+                if(num % 1 === 0){
+            
+                arr.push(num)
+              
+            }
+              
+           }
+          
+         }
+        
+       }
+         return arr
+  }
+
