@@ -53,23 +53,22 @@
     
  }
  this.calMedian = function(){
-   var value
-   var index;
-   var res = (this.dataArray.length)+1;
+      var value
+      var index;
+      var res = (this.dataArray.length)+1;
    //alert(res)
-   if (res % 2 == 0) {
-     index = res/2;
-     value = dataArray[index-1]
-     
-   }
-   else{
-      var index1 = res/2 - 0.5
-      var index2 =  res/2 + 0.5
-      value = (this.dataArray[index1-1] + this.dataArray[index2-1] )/ 2 
+      if (res % 2 == 0) {
+         index = res/2;
+         value = dataArray[index-1] 
+      }
+      else{
+         var index1 = res/2 - 0.5
+         var index2 =  res/2 + 0.5
+         value = (this.dataArray[index1-1] + this.dataArray[index2-1] )/ 2 
        
-      
-   }
+         }
+   
    return value
    
- }
-  }
+   }
+}
