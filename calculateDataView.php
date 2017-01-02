@@ -8,8 +8,7 @@
  
   //finding the indexnumber for the datafield to use if its there
   if(true){
-    $numberFieldForMap =  array_search("Procentsats(vises på kort)", $podioFieldNames);
-    
+    $numberFieldForMap = array_search("Procentsats(vises på kort)", $podioFieldNames); 
     }
     else{
     echo "forkert";
@@ -114,10 +113,9 @@
                      //loop through the centerarray
                  
                       // set the colorproperty if the property of the json dataobject is the name of the uucenter
-                        for(var p = 0; p < centerInfo.length; p++){
-                          if (centerInfo[p][indexForNumber]!= "ikke angivet") {
+                      for(var p = 0; p < centerInfo.length; p++){
+                        if (centerInfo[p][indexForNumber]!= "ikke angivet") {
                            
-                         
                           if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){                      
                             feature.setProperty('colVar', centerInfo[p][indexForNumber])
                             var colorvariable = feature.getProperty('colVar')
@@ -128,8 +126,8 @@
                           }
                           
           
-                }
-                 }
+                        }
+                      }
                   // return the style object
                 return{              
                         fillColor: color
@@ -142,7 +140,7 @@
     }
            // add listeners to the map.data object   
         map.data.addListener('mouseover', mouseInToRegion);
-        map.data.addListener('mouseup', mouseOutOfRegion);
+        map.data.addListener('click', mouseOutOfRegion);
         
         
         /**
@@ -179,6 +177,7 @@
         // reset the hover state, returning the border to normal
         //e.feature.setProperty('state', 'normal');
          //alert("mouse is moved")
+         infoW.close(map)
         }
     }
     
