@@ -2,7 +2,7 @@
   require 'mapclasses/Map.php';
   $app_id = 17379371; // get app id from a mySQL tabel (not created yet)
   $app_id2 = 17489549;
-  $podioData = new Map($app_id);
+  $podioData = new Map($app_id2);
   $podioFieldData = $podioData->exValues;
   $podioFieldNames = $podioData->fieldNames;
  
@@ -115,17 +115,21 @@
                  
                       // set the colorproperty if the property of the json dataobject is the name of the uucenter
                         for(var p = 0; p < centerInfo.length; p++){
-                      
-                          if(feature.getProperty('uucenter')  == centerInfo[p][0] ){                      
+                          if (centerInfo[p][indexForNumber]!= "ikke angivet") {
+                           
+                         
+                          if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){                      
                             feature.setProperty('colVar', centerInfo[p][indexForNumber])
                             var colorvariable = feature.getProperty('colVar')
                       
                             // call the calculateColormethod to findout the color
                             var color = dataView.calculateColor(colorvariable)
+                            
                           }
+                          
           
                 }
-                
+                 }
                   // return the style object
                 return{              
                         fillColor: color
@@ -157,7 +161,7 @@
             var location = e.latLng;
              
             infoW.setContent(centerInfo[i][0]+" </br> "+centerInfo[i][indexForNumber]+" %"+"<br/>"+ kommune)
-           
+        
               
             infoW.setPosition(location)   
             infoW.open(map)
