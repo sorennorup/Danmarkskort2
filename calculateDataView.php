@@ -66,9 +66,6 @@
       // create a new datamodelobject
       var getData = new CalculateData(dArray)
       
-        alert(getData.findLowerQuartile())
-      
-      
       // create a new dataviewcontroller object
       var dataView = new CalculateDataViewController(dArray)
       
@@ -99,7 +96,7 @@
                
               if (centername == kommune_daekningJson[k].name ) {
                        
-                data = centerInfo[j][indexForNumber]
+                //data = centerInfo[j][indexForNumber]
               
                 }
                   if (kommune_daekningJson[k].name == centername ){
@@ -116,9 +113,9 @@
                       for(var p = 0; p < centerInfo.length; p++){
                         if (centerInfo[p][indexForNumber]!= "ikke angivet") {
                            
-                          if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){                      
-                            feature.setProperty('colVar', centerInfo[p][indexForNumber])
-                            var colorvariable = feature.getProperty('colVar')
+                          if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){
+                            //Set the colorvariable from podio. You have to parse it into an integer
+                            var colorvariable = parseInt(centerInfo[p][indexForNumber])
                       
                             // call the calculateColormethod to findout the color
                             var color = dataView.calculateColor(colorvariable)
@@ -127,6 +124,7 @@
                           
           
                         }
+                        
                       }
                   // return the style object
                 return{              

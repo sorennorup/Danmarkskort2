@@ -21,8 +21,10 @@
       var l2 = this.displayColors("yellow") + parseInt(this.datObj.findLowerQuartile()+1)+ " % - "+ parseInt(this.datObj.calMedian()-1)+ " % ";
        //third line show the category with the highest interval
       var l3 = this.displayColors("red") + parseInt(this.datObj.calMedian())+ " % - "+ this.datObj.findHigestValue()+ " % ";
+      
+      var l4 = this.displayColors("black") + "Ingen data";
        
-      return  l1 +  "</br></br>" + l2 + "</br></br>"+l3 + "</br></br>"
+      return  l1 +  "</br></br>" + l2 + "</br></br>"+l3 + "</br></br>"+ l4
    }
     // calculate what color the area on map should have
     this.calculateColor = function(number){
@@ -39,7 +41,7 @@
             color = "red"
           
         }
-        else {
+        else if(number == "ikke angivet") {
             color = "white"
         }
          }
