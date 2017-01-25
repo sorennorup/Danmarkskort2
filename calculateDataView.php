@@ -1,4 +1,4 @@
-<?php
+<?php 
   require 'mapclasses/Map.php';
   $app_id = 17379371; // get app id from a mySQL tabel (not created yet)
   $app_id2 = 17489549;
@@ -24,9 +24,16 @@
            <style>
       html, body {
         height: 370px;
-        padding-left:15% ;
-        margin: 0;
+        
         }
+     #wrapper{
+      width: 750px;
+      margin-top: 0;
+      margin-right: auto;
+      margin-bottom: 0;
+      margin-left: auto;
+      
+     }
       #map {
        height: 600px;
        width: 600px;
@@ -35,19 +42,25 @@
        border: thin solid #333;
        }
        #box {
-        position: relative;
+        float:right;
+        margin-top:20px;
        
        }
     
     </style>
       </head>
-      <body onload = " initialize(dArray)">
-         
-        <h1>Calculate array of data and place it in intervals of quartines</h1>
-        <div id = "box"> </div>
-        <div id = "map"></div>
-     
-        
+      <body onload = "initialize(dArray)">
+      <div id = "wrapper">
+      <h1>Calculate array of data and place it in intervals of quartines</h1>
+      <button onclick="initMap(7,'1')">Danmark</button>
+      <button onclick="initMap(9,'2')">Sjælland/Hovedstaden</button>
+      <button onclick="initMap(8,'3')">Nord og MidtJylland</button>
+      <button onclick="initMap(8,'4')">Midtjylland og Syddanmark</button>
+      
+      <div id = "box"> </div>
+      <div id = "map"></div>
+        </div>
+          
     <script>
       // turn the php array into javascript array
       var centerInfo = <?php echo json_encode($podioFieldData); ?>;
@@ -76,16 +89,38 @@
        * Initializes the map and calls the function that loads the Geojson layer.
        */
     
-      function initMap() {
+      function initMap(zoom = 7,place = '1') {
         //Create the infowindow object
+        
         var infoW = new google.maps.InfoWindow;
         
+        var place = place;
+       
+        if (place == "1") {
+          var zoom = zoom;       
+          var center = new google.maps.LatLng(56.266427,10.292759)
+        }     
+        else if (place == "2"){
+          var zoom = zoom;    
+          var center = new google.maps.LatLng(55.635889, 12.623913899999934) 
+        }
+        else if (place == "3"){
+          var center=new google.maps.LatLng(56.633072, 9.811927999999966)
+          var zoom = zoom
+        }
+        else if (place == "4"){
+          alert(place)
+          var center = new google.maps.LatLng(55.472174, 9.134411)
+          var zoom = zoom;
+        }
         map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(55.1916538649462,11.678901769377), 
-          zoom: 7,
-          mapTypeId: 'terrain'
+          center: center, 
+          zoom: zoom,
+          mapTypeId: 'terrain',
+          scrollwheel: false
         });
-        
+ 
+ 
         //loop through the json object
         for(var j = 0; j < centerInfo.length; j++){
             // find the centername from the Podio array
@@ -94,31 +129,26 @@
         // find the matching center data and loop through all the kommunerfiles 
            for(var k = 0; k < kommune_daekningJson.length; k++){
                
-              if (centername == kommune_daekningJson[k].name ) {
-                       
-                //data = centerInfo[j][indexForNumber]
+              if (kommune_daekningJson[k].name == centername ){
               
-                }
-                  if (kommune_daekningJson[k].name == centername ){
-              
-                    for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
+                  for(var i = 0; i < kommune_daekningJson[k].kommuner.length; i++){
              
-                      var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
-                      map.data.loadGeoJson(res);
-                      map.data.setStyle(function(feature){
+                    var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
+                    map.data.loadGeoJson(res);
+                    map.data.setStyle(function(feature){
        
                      //loop through the centerarray
                  
                       // set the colorproperty if the property of the json dataobject is the name of the uucenter
-                      for(var p = 0; p < centerInfo.length; p++){
-                        if (centerInfo[p][indexForNumber]!= "ikke angivet") {
+                    for(var p = 0; p < centerInfo.length; p++){
+                      if (centerInfo[p][indexForNumber]!= "ikke angivet") {
                            
-                          if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){
+                        if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){
                             //Set the colorvariable from podio. You have to parse it into an integer
-                            var colorvariable = parseInt(centerInfo[p][indexForNumber])
+                          var colorvariable = parseInt(centerInfo[p][indexForNumber])
                       
                             // call the calculateColormethod to findout the color
-                            var color = dataView.calculateColor(colorvariable)
+                          var color = dataView.calculateColor(colorvariable)
                             
                           }
                           
@@ -173,13 +203,11 @@
        */
       function mouseOutOfRegion(e) {
         // reset the hover state, returning the border to normal
-        //e.feature.setProperty('state', 'normal');
-         //alert("mouse is moved")
          infoW.close(map)
         }
     }
     
-
+    
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnCH6jSQb-BkkDGFriXjaImHSob6YaVNU&callback=initMap">

@@ -49,7 +49,8 @@
  
   this.findhigherQuartile = function(){
       var half = this.calMedian()/2
-      return Math.round(this.calMedian()+ half);
+      
+      return Math.round(parseInt(this.calMedian()) + parseInt(half));
     
  }
  this.calMedian = function(){

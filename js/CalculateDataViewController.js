@@ -20,11 +20,13 @@
      //second line show the category with medium interval
       var l2 = this.displayColors("yellow") + parseInt(this.datObj.findLowerQuartile()+1)+ " % - "+ parseInt(this.datObj.calMedian()-1)+ " % ";
        //third line show the category with the highest interval
-      var l3 = this.displayColors("red") + parseInt(this.datObj.calMedian())+ " % - "+ this.datObj.findHigestValue()+ " % ";
+      var l3 = this.displayColors("red") + parseInt(this.datObj.calMedian())+ " % - "+ this.datObj.findhigherQuartile() + " % ";
       
-      var l4 = this.displayColors("black") + "Ingen data";
+      var l4 = this.displayColors("blue") + this.datObj.findhigherQuartile() + "% - "+ this.datObj.findHigestValue() + " % " ;
+      
+      var l5 = this.displayColors("black") + "Ingen data"; 
        
-      return  l1 +  "</br></br>" + l2 + "</br></br>"+l3 + "</br></br>"+ l4
+      return  l1 +  "</br></br>" + l2 + "</br></br>"+l3 + "</br></br>"+ l4 + "</br></br>" +l5
    }
     // calculate what color the area on map should have
     this.calculateColor = function(number){
@@ -37,12 +39,12 @@
           else if (number > this.datObj.findLowerQuartile() && number < this.datObj.calMedian() || number == this.datObj.findLowerQuartile() || number == this.datObj.calMedian() ) {
             color = "yellow"
         }
-            else if (number > this.datObj.calMedian()){
+            else if (number > this.datObj.calMedian() && number < this.datObj.findhigherQuartile()){
             color = "red"
           
         }
-        else if(number == "ikke angivet") {
-            color = "white"
+        else if(number > this.datObj.findhigherQuartile()) {
+            color = "blue"
         }
          }
          

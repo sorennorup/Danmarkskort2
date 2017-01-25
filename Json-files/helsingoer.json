@@ -669,8 +669,8 @@
                 ]
             },
             "properties": {
-                "uucenter": "UU Øresund",
-                "name": "Helsingør Kommune",
+                "uucenter": "UU √òresund",
+                "name": "Helsing√∏r Kommune",
                 "styleUrl": "#default",
                 "styleHash": "2ddbd54f",
                 "styleMapHash": {
@@ -683,7 +683,7 @@
                 "fill": "#00008b",
                 "fill-opacity": 0.6
             },
-            "id": "Helsingør"
+            "id": "Helsing√∏r"
         }
     ]
 }
