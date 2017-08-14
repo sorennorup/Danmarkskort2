@@ -94,10 +94,22 @@ class Map{
           
             </head>
             <body onload="initialize(7,'1','googleMap')">
-   
+            <input type="text" name = "uucenter" id= "uucenter" onkeyup="test();"/>
+            <div id = result></div>
             <script>
        
-                
+          function test(){
+           var search_field = $("#uucenter").val();
+           $.each(centerInfo,function(index,value){
+            {
+                      if((search_field != -1) || (value[index][0] != -1)){
+                        $("#result").val("test");
+                      }
+            }
+            
+            
+            });
+            }      
             
             
     $(function(){

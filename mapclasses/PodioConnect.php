@@ -52,7 +52,7 @@ Podio::setup($client_secret,$client_token , array(
            
                  $this->allValue[$j] = $field->humanized_value();
                }
-                 else{
+                 else{ // if fields are empty
                      $this->allValue[$j] = "ikke angivet";
                   }
         }
