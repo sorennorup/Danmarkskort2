@@ -3,25 +3,22 @@
 require 'PodioConnect.php';
 
 class Map{
-            private $app_id;
-           
-            public $exValues = array();
-            public $fieldNames = array();
-  
+    private $app_id;
+    public $exValues = array();
+    public $fieldNames = array();
     function __construct($app_id){
-            $this->appId = $app_id;        
-            
-            $this->getPodioData();
-            //$this->createMap();
+      $this->appId = $app_id;            
+      $this->getPodioData();
+           
    
     }
     function getPodioData(){
-        try{
+      try{
             $podio_data=new PodioConnect($this->appId);          
             $this->exValues = $podio_data->getAllFieldValues();
             $this->fieldNames = $podio_data->getAllFieldNames();
               
-            }
+         }
             
         catch(PodioError $e) {
             echo $e;           
@@ -29,15 +26,10 @@ class Map{
             }
     
     public function createMap(){          
-            $count = 0;
-            $fields = $this->fieldNames;
-           
-            $keys = json_encode($fields);
-            
-            
-            $values = $this->exValues;          
-            
-              
+       $count = 0;
+       $fields = $this->fieldNames;
+       $keys = json_encode($fields);
+       $values = $this->exValues;                 
 ?>
             <script>
             
@@ -60,7 +52,7 @@ class Map{
             
             <link rel="stylesheet" type="text/css" href = "css/style.css">
             <script>
-             google.charts.load('current', {packages: ['corechart']});
+            google.charts.load('current', {packages: ['corechart']});
             google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       // Define the chart to be drawn.
@@ -86,29 +78,43 @@ class Map{
             var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
             chart.draw(data, options);
     }
-    
-
-            
-            
+             
             </script>
-          
             </head>
             <body onload="initialize(7,'1','googleMap')">
-            <input type="text" name = "uucenter" id= "uucenter" onkeyup="test();"/>
-            <div id = result></div>
+            <input type="text" name = "uucenter" id= "uucenter" onkeyup="searchForCenter();"/>
+            <div id = "res">rest </div>
             <script>
-       
-          function test(){
-           var search_field = $("#uucenter").val();
-           $.each(centerInfo,function(index,value){
-            {
-                      if((search_field != -1) || (value[index][0] != -1)){
-                        $("#result").val("test");
+                //Trigger event when key is pressed
+          $(document).keypress(function(e){
+                // Keycod 13 is the enterkey
+            if(e.keyCode === 13){
+                         
+                        var result = searchForCenter();
+                        
+                        zoomInOnCenter('56.678865','9.319153','googleMap');
+                        
+                        
+                          }   
+            
+            });         
+                      
+          
+          function searchForCenter(){
+                        var resArray = [];
+                        var search_field = $("#uucenter").val();
+        
+            for(var i = 0; i < centerInfo.length;i++){
+                        // Search if the inputtekst mactches center names
+              if(centerInfo[i][0].toUpperCase().indexOf(search_field.toUpperCase())!== -1){
+                        // Add it to the array
+                        resArray.push(centerInfo[i][0]);       
                       }
+                      //Output the result array
+                        $("#res").html(resArray);
             }
-            
-            
-            });
+                    //Return the result of the search
+                        return resArray;
             }      
             
             
@@ -122,17 +128,17 @@ class Map{
             $(".infoClassRed").hide();
             $(".canvas.green").mouseover(function(){
             $(".infoClass").show();
-            })
+            });
             $(".canvas.green").mouseout(function(){
             $(".infoClass").hide();
-            })
+            });
             
             $(".canvas.red").mouseover(function(){
             $(".infoClassRed").show();
-            })
+            });
             $(".canvas.red").mouseout(function(){
             $(".infoClassRed").hide();
-            })
+            });
              })
                         
             </script>

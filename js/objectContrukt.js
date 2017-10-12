@@ -554,6 +554,7 @@ new google.maps.LatLng(56.678865,9.319153)
     infoWindow.open(map);
   }
  
+
  
   //var myLatLng = {lat: 55.9474566, lng: 12.3772604};
 
@@ -585,8 +586,26 @@ new google.maps.LatLng(56.678865,9.319153)
    return region
  }
  
- 
+ function zoomInOnCenter(lat,lng,mapId){
+    var center = new google.maps.LatLng(lat,lng);
+    alert('works');
+    
+    var mapProp = {
+   
+     zoomControl:false,  
+     scaleControl:false,
+     scrollwheel:false,
+     keyboardShortcuts:false,
+     disableDefaultUI: false,
+     zoom:5,
+
+  };  
+   var map = new google.maps.Map(document.getElementById(mapId),mapProp);
+     center.marker.setMap(map);
+   
+ }
 }
+ 
 
 
  

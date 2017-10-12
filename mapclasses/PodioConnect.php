@@ -1,5 +1,5 @@
 <?php
-/*this Class is making connection with the podio API 
+/*this Class is making connection with the podio API and handles all the data of the App
 just include podio_connect.php in your script and create an podio_connect object and you kan start interacting with Podio*/
 /* The methods in this class get all the values of the fields in a Podio App and all the field names. */
 require  "podio-php/PodioAPI.php";
@@ -26,18 +26,19 @@ Podio::setup($client_secret,$client_token , array(
      
           try {
    
-                Podio::authenticate('password', array('username' => $username, 'password' =>$password ));  
+               Podio::authenticate('password', array('username' => $username, 'password' =>$password ));
+                //Podio::authenticate('app', array('app_id' => $this->app_id, 'app_token' => $this->app_token));
  
               }
                 catch (PodioError $e) {
               }
    }
-    
+       
        $this->app_id = $app_id;
-     
+      // Get the array with all the externalIds of the app
        $this->allExteral_ids = $this->getExternalIds();
    }
-  
+   // get all the fieldvalues of the app
    public function getAllFieldValues(){     
       $i=0;
       $items =  PodioItem::filter($this->app_id,array('limit' => 100));
@@ -93,7 +94,7 @@ Podio::setup($client_secret,$client_token , array(
          //return the external Id array; 
              return $exIds;
     }
-   
+     // Get all the fieldnames of the app
    public function getAllFieldNames(){
      $items = PodioItem::filter($this->app_id,array('limit' => 1));
   
@@ -105,7 +106,7 @@ Podio::setup($client_secret,$client_token , array(
     
             return $fieldNames;
     }
-       
+       // get alle the externalIds of the app
   private function getExternalIds(){
     $exIds = array();
     $items = PodioApp::get( $this->app_id);
