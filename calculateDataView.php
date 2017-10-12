@@ -74,15 +74,15 @@ ini_set('display_errors', 1);
     
       // create the data input array from the Podio field
       var dArray = [];     
-      dArray = createDataArray(indexForNumber,kommune_daekningJson,centerInfo)
-      dArray = dArray.sort(function(a, b){return a-b});
+      dArray = createDataArray(indexForNumber,kommune_daekningJson,centerInfo);
+      dArray = dArray.sort(function(a, b){return a-b;});
     
       
       // create a new datamodelobject
-      var getData = new CalculateData(dArray)
+      var getData = new CalculateData(dArray);
       
       // create a new dataviewcontroller object
-      var dataView = new CalculateDataViewController(dArray)
+      var dataView = new CalculateDataViewController(dArray);
       
       // create the mapobject
       var map;
@@ -94,26 +94,26 @@ ini_set('display_errors', 1);
       function initMap(zoom = 7,place = '1') {
         //Create the infowindow object
         
-        var infoW = new google.maps.InfoWindow;
+        var infoW = new google.maps.InfoWindow();
         
-        var place = place;
+         place = place;
        
         if (place == "1") {
-          var zoom = zoom;       
-          var center = new google.maps.LatLng(56.266427,10.292759)
+         zoom = zoom;       
+          var center = new google.maps.LatLng(56.266427,10.292759);
         }     
         else if (place == "2"){
-          var zoom = zoom;    
-          var center = new google.maps.LatLng(55.635889, 12.623913899999934) 
+          zoom = zoom;    
+          var center = new google.maps.LatLng(55.635889, 12.623913899999934); 
         }
         else if (place == "3"){
-          var center=new google.maps.LatLng(56.633072, 9.811927999999966)
-          var zoom = zoom
+          var center=new google.maps.LatLng(56.633072, 9.811927999999966);
+          zoom = zoom;
         }
         else if (place == "4"){
-          alert(place)
-          var center = new google.maps.LatLng(55.472174, 9.134411)
-          var zoom = zoom;
+          
+          var center = new google.maps.LatLng(55.472174, 9.134411);
+          zoom = zoom;
         }
         map = new google.maps.Map(document.getElementById('map'), {
           center: center, 
@@ -126,7 +126,7 @@ ini_set('display_errors', 1);
         //loop through the json object
         for(var j = 0; j < centerInfo.length; j++){
             // find the centername from the Podio array
-            centername = centerInfo[j][0]
+            centername = centerInfo[j][0];
             
         // find the matching center data and loop through all the kommunerfiles 
            for(var k = 0; k < kommune_daekningJson.length; k++){
@@ -138,19 +138,17 @@ ini_set('display_errors', 1);
                     var res = "Json-files/"+kommune_daekningJson[k].kommuner[i];    
                     map.data.loadGeoJson(res);
                     map.data.setStyle(function(feature){
-       
                      //loop through the centerarray
-                 
-                      // set the colorproperty if the property of the json dataobject is the name of the uucenter
+                    // set the colorproperty if the property of the json dataobject is the name of the uucenter
                     for(var p = 0; p < centerInfo.length; p++){
                       if (centerInfo[p][indexForNumber]!= "ikke angivet") {
                            
                         if(feature.getProperty('uucenter')  == centerInfo[p][0]  ){
                             //Set the colorvariable from podio. You have to parse it into an integer
-                          var colorvariable = parseInt(centerInfo[p][indexForNumber])
+                          var colorvariable = parseInt(centerInfo[p][indexForNumber]);
                       
                             // call the calculateColormethod to findout the color
-                          var color = dataView.calculateColor(colorvariable)
+                          var color = dataView.calculateColor(colorvariable);
                             
                           }
                           
