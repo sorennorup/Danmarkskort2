@@ -1,5 +1,7 @@
 <?php 
   require 'mapclasses/Map.php';
+  error_reporting(E_ALL);
+ini_set('display_errors', 1);
   $app_id = 17379371; // get app id from a mySQL tabel (not created yet)
   $app_id2 = 17489549;
   $podioData = new Map($app_id2);

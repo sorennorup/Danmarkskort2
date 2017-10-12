@@ -3,12 +3,14 @@
 just include podio_connect.php in your script and create an podio_connect object and you kan start interacting with Podio*/
 /* The methods in this class get all the values of the fields in a Podio App and all the field names. */
 require  "podio-php/PodioAPI.php";
-include '../../log/config.php';
+//include '../../log/config.php';
 
 
 Podio::setup($client_secret,$client_token , array(
   "session_manager" => "PodioSession"
 ));
+
+
 
   class PodioConnect {
    private $allItems=array();
@@ -17,9 +19,9 @@ Podio::setup($client_secret,$client_token , array(
    private  $allExteral_ids=array();
    public $app_id;
    
- //constructor for connecting with podio when creating the object
+   //constructor for connecting with podio when creating the object
    function __construct($app_id){
-     include '../../log/config.php' ;
+     include '../../log/config.php';
      if (Podio::is_authenticated()) {       
        }
        else {
@@ -27,21 +29,22 @@ Podio::setup($client_secret,$client_token , array(
           try {
    
                Podio::authenticate('password', array('username' => $username, 'password' =>$password ));
-                //Podio::authenticate('app', array('app_id' => $this->app_id, 'app_token' => $this->app_token));
- 
+               
               }
                 catch (PodioError $e) {
               }
-   }
+    }
        
        $this->app_id = $app_id;
       // Get the array with all the externalIds of the app
        $this->allExteral_ids = $this->getExternalIds();
    }
    // get all the fieldvalues of the app
-   public function getAllFieldValues(){     
+   public function getAllFieldValues(){
+    
       $i=0;
       $items =  PodioItem::filter($this->app_id,array('limit' => 100));
+      
     
       foreach ($items['items'] as $item) {
   // Now you can extract values from the individual item. E.g.:
