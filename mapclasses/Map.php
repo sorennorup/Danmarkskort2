@@ -112,7 +112,7 @@ function initialize(zoom,place) {
         <button onclick="initialize(8,'4', 'googleMap')">Midtjylland og Syddanmark</button>
 
         <select id="names" onclick="zoominOnCenter(18)"></select>
-        <div id="googleMap" style="width:100%;height:600px; "> </div>
+        <div id="googleMap" style="width:100%; height: 100%;"> </div>
     
             <div id="googleMap">  </div>
             <div id="chart_div"></div>

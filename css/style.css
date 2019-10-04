@@ -1,8 +1,6 @@
 
 #googleMap{
     width:100%;
-    height:600px;
-    
 }
 
 .infoBox{
@@ -40,13 +38,13 @@
     background-color: #477e07;
 }
  .infoClass, .infoClassRed {
-    position: absolute;  
+    position: absolute;
     left:100px;
     width: 100px;
-    height: 100px;    
+    height: 100px;
   }
   .infoClass{
-        top:50px;      
+        top:50px;
   }
   .infoClassRed{
          top:120px; 

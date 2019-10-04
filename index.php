@@ -9,7 +9,4 @@ $myMap2 = new Map(6229597);
 
 $myMap2->createMap();
 
-
-
-
 ?>
