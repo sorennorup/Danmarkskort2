@@ -38,7 +38,7 @@ class Map{
             <!DOCTYPE html>
             <html>
             <head>
-                      
+            <meta charset="UTF-8">   
             <script type="text/javascript" src="js/objectContrukt.js"> </script>
             <script type="text/javascript" src="js/polygon.js"> </script>
             <script src="js/jquery.min.js"></script>
@@ -69,16 +69,11 @@ map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
     
    var obj = createCenterObject();
  
- for(var i=0;i<jArray.length;i++){
+        for(var i=0;i<jArray.length;i++){
           obj[i].marker(map).setMap(map);
-           
-            }         
-   
+        }         
               center.marker.setMap(map);
-           
-    }
-
-    
+        }   
 
 function initialize(zoom,place) {
         var place = place;

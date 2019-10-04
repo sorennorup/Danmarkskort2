@@ -25,7 +25,6 @@ function uuCenter(mapId,arr = [], keys = [] ){
             propArr.push([keys[k],arr[k]])
    }
 }
-    
       return propArr
 }
 // set the postion of the centeraddress
@@ -53,7 +52,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
       
       //str+='<button id = "kommune"> Se området UU centeret dækker</div>'
          for(var j = 0; j< propertyArr.length;j++){                     
-            str+= "<b>" +propertyArr[j][0]+":</b>  "+ propertyArr[j][1]+"<br/>" // inserts the fieldtitles and the values in the content                        
+            str+= "<b>" +propertyArr[j][0]+":</b>  "+ propertyArr[j][1]+"<br/>" // inserts the fieldtitles and the values in the content            
             }   
             +"</div>";                  
      
@@ -87,7 +86,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
       
    var infoW2 = new google.maps.InfoWindow({
         maxWidth:500,
-        content: " <div style='width:auto;height:auto;font-family:calibri;z-index:-1; font-size: 18px;'>"+ this.centerName+"<p><i>Klik på ikonet nedenfor</i></p></div>"
+        content: " <div style='width:auto;height:auto;font-family:calibri;z-index:-1; font-size: 18px;'>"+ this.centerName+"<p><i>Klik for at se flere oplysninger</i></p></div>"
            
       });
         //Open infoW and close infoW2 when marker is clicked
@@ -103,28 +102,24 @@ function uuCenter(mapId,arr = [], keys = [] ){
           // open infoW2 when marker is mouseovered
        google.maps.event.addListener(mark, "mouseover", function(){
          
-      infoW2.open(map,mark);
+       infoW2.open(map,mark);
          
          });
        
        google.maps.event.addListener(mark, "mouseout", function(){
          
-      infoW2.close();
+       infoW2.close();
          
          });
         
-        
-        
-      google.maps.event.addListener(mark,"click",function(){
-         
+       google.maps.event.addListener(mark,"click",function(){
          
         });      
-      return mark
-}
-   
+       return mark
+   }
+
 }
 // End of the centerObject
-
 
    function createCenterObject(mapId){     
     
