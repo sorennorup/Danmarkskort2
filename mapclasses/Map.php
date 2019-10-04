@@ -53,11 +53,11 @@ class Map{
             
             var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
             
-            map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
+            map.setOptions({zoomControl:false, scrollwheel: false ,navigationControl: false,
                 mapTypeControl: true,
-                scaleControl: true,
+                scaleControl: false,
                 draggable: true,
-                zooom:true,
+                zooom:false,
                 //styles: styles
                 }  
         )};

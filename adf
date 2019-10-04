@@ -1,0 +1,62 @@
+[33mcommit 493c944630270a111f1c03d3a15a9dffc54c5b1e[m[33m ([m[1;36mHEAD -> [m[1;32mnew-web-version[m[33m, [m[1;31morigin/new-web-version[m[33m)[m
+Author: Søren Nørup <soren.norup@uudanmark.dk>
+Date:   Fri Oct 4 16:33:20 2019 +0200
+
+    fixes height on map container
+
+[1mdiff --git a/css/style.css b/css/style.css[m
+[1mindex 00324ac..6068296 100644[m
+[1m--- a/css/style.css[m
+[1m+++ b/css/style.css[m
+[36m@@ -1,8 +1,6 @@[m
+ [m
+ #googleMap{[m
+     width:100%;[m
+[31m-    height:600px;[m
+[31m-    [m
+ }[m
+ [m
+ .infoBox{[m
+[36m@@ -40,13 +38,13 @@[m
+     background-color: #477e07;[m
+ }[m
+  .infoClass, .infoClassRed {[m
+[31m-    position: absolute;  [m
+[32m+[m[32m    position: absolute;[m
+     left:100px;[m
+     width: 100px;[m
+[31m-    height: 100px;    [m
+[32m+[m[32m    height: 100px;[m
+   }[m
+   .infoClass{[m
+[31m-        top:50px;      [m
+[32m+[m[32m        top:50px;[m
+   }[m
+   .infoClassRed{[m
+          top:120px; [m
+[1mdiff --git a/index.php b/index.php[m
+[1mindex 7d5b185..0912906 100644[m
+[1m--- a/index.php[m
+[1m+++ b/index.php[m
+[36m@@ -9,7 +9,4 @@[m [m$myMap2 = new Map(6229597);[m
+ [m
+ $myMap2->createMap();[m
+ [m
+[31m-[m
+[31m-[m
+[31m-[m
+ ?>[m
+\ No newline at end of file[m
+[1mdiff --git a/mapclasses/Map.php b/mapclasses/Map.php[m
+[1mindex 8cf9045..6792b62 100644[m
+[1m--- a/mapclasses/Map.php[m
+[1m+++ b/mapclasses/Map.php[m
+[36m@@ -112,7 +112,7 @@[m [mfunction initialize(zoom,place) {[m
+         <button onclick="initialize(8,'4', 'googleMap')">Midtjylland og Syddanmark</button>[m
+ [m
+         <select id="names" onclick="zoominOnCenter(18)"></select>[m
+[31m-        <div id="googleMap" style="width:100%;height:600px; "> </div>[m
+[32m+[m[32m        <div id="googleMap" style="width:100%; height: 100%;"> </div>[m
+     [m
+             <div id="googleMap">  </div>[m
+             <div id="chart_div"></div>[m
