@@ -29,11 +29,10 @@ class Map{
             $keys = json_encode($fields);
             $values = $this->exValues;          
 ?>
-            <script>
-            
+        <script>
             var centerInfo = <?php echo json_encode($values); ?>;
-           
-            var keyStr = <?php echo $keys; ?>; </script>
+            var keyStr = <?php echo $keys; ?>; 
+        </script>
             
             <!DOCTYPE html>
             <html>
@@ -49,25 +48,21 @@ class Map{
             <script type="text/javascript" src="js/uucentrelistKml.js"></script>
             <link rel="stylesheet" type="text/css" href = "css/style.css">
             <script>
-             google.charts.load('current', {packages: ['corechart']});
+            google.charts.load('current', {packages: ['corechart']});
             google.charts.setOnLoadCallback(drawChart);
-        
-   
-       
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            
+            map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
+                mapTypeControl: true,
+                scaleControl: true,
+                draggable: true,
+                zooom:true,
+                //styles: styles
+                }  
+        )};
     
-//styling the map
-map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
-    mapTypeControl: true,
-    scaleControl: true,
-    draggable: true,
-    zooom:true,
-    //styles: styles
-    
-    }  
-    )};
-    
-   var obj = createCenterObject();
+    var obj = createCenterObject();
  
         for(var i=0;i<jArray.length;i++){
           obj[i].marker(map).setMap(map);
@@ -159,19 +154,14 @@ function zoominOnCenter(zoom){
         draggable: true,
         zooom:true,
         //styles: styles
-        
-        }  
-        );
-        
+        });
+
        var obj = createCenterObject();
-     
+
      for(var i=0;i<obj2.length;i++){
-              obj[i].marker(map).setMap(map);
-               
-                }         
-       
-                  center.marker.setMap(map);
-               
+             obj[i].marker(map).setMap(map);
+        }
+        center.marker.setMap(map);  
         }
 
 </script>

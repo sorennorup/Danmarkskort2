@@ -15,18 +15,16 @@ function uuCenter(mapId,arr = [], keys = [] ){
    this.lat = arr[3]; // must not be changed
 
    this.lng = arr[4]; // must not be changed
-
-   this.propArrCreate = // set the fieldlabels and the fieldvalues in a twodimensional array
-   function(){   
-   
-   var propArr = [];
+    // set the fieldlabels and the fieldvalues in a twodimensional array
+   this.propArrCreate = function(){
+      var propArr = [];
       for(var k = 0;k<arr.length;k++ ){
          if (k!=3&&k!=4){
             propArr.push([keys[k],arr[k]])
-   }
-}
+         }
+      }
       return propArr
-}
+   }
 // set the postion of the centeraddress
    this.space = function(){
       var pos=new google.maps.LatLng(this.lat,this.lng);
@@ -51,7 +49,10 @@ function uuCenter(mapId,arr = [], keys = [] ){
       var str="<div style = 'width:300px;height:auto;font-family:calibri;z-index:-1; font-size: 16px;'>" //some style to display in the infowindow
       
       //str+='<button id = "kommune"> Se området UU centeret dækker</div>'
-         for(var j = 0; j< propertyArr.length;j++){                     
+         for(var j = 0; j< propertyArr.length;j++){ 
+            if(j == propertyArr.length -2) {
+               propertyArr[j][1] = '<a href = "'+propertyArr[j][1]+'">'+propertyArr[j][1]+'</a>';
+            }                    
             str+= "<b>" +propertyArr[j][0]+":</b>  "+ propertyArr[j][1]+"<br/>" // inserts the fieldtitles and the values in the content            
             }   
             +"</div>";                  
@@ -121,27 +122,20 @@ function uuCenter(mapId,arr = [], keys = [] ){
 }
 // End of the centerObject
 
-   function createCenterObject(mapId){     
-    
-      var centerObject=new Array();
-       
-      for (var i=0;i<centerInfo.length;i++) {       
-                    
-          centerObject[i]= new uuCenter(
-                 mapId,
-                 centerInfo[i],
-                 keyStr
-                 
-                 );               
-           }         
-      return centerObject;     
+function createCenterObject(mapId){
+   var centerObject=new Array();
+   for (var i=0;i<centerInfo.length;i++) {
+      centerObject[i] = new uuCenter(
+         mapId,
+         centerInfo[i],
+         keyStr    
+      );               
+   }         
+   return centerObject;     
      }
 
-   function initialize(zoom,place,mapId)
-{
- 
+function initialize(zoom,place,mapId) {
    var center = new google.maps.LatLng(56.266427,10.292759);
-   
  
    var mapProp = {
      center:center,
@@ -151,11 +145,9 @@ function uuCenter(mapId,arr = [], keys = [] ){
      keyboardShortcuts:false,
      disableDefaultUI: false,
      zoom:zoom,
+  }; 
 
-  };  
-     var map = new google.maps.Map(document.getElementById(mapId),mapProp);
-
-   
+   var map = new google.maps.Map(document.getElementById(mapId),mapProp);
     
 //styling the map
    map.setOptions({zoomControl:true, scrollwheel: false ,navigationControl: false,
@@ -165,10 +157,7 @@ function uuCenter(mapId,arr = [], keys = [] ){
       zooom:true,
     
     }  
-    );
-
-     
-    
+    ); 
     
   var regionChoords = [
       
