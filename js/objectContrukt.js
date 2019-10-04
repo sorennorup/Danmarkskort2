@@ -8,8 +8,6 @@
    var answerd = true;
    var mapId;
 
-
-
 function uuCenter(mapId,arr = [], keys = [] ){
      
    this.centerName = arr[0]; // must not be changed
@@ -30,14 +28,12 @@ function uuCenter(mapId,arr = [], keys = [] ){
     
       return propArr
 }
-
-   this.space= // set the postion of the centeraddress
-   function(){
+// set the postion of the centeraddress
+   this.space = function(){
       var pos=new google.maps.LatLng(this.lat,this.lng);
       return pos;
-}
-   this.streetView =
-   function(id){
+   }
+   this.streetView = function(id){
       var panorama = new google.maps.StreetViewPanorama(
             document.getElementById(id), {
               position: this.space(),
@@ -48,16 +44,14 @@ function uuCenter(mapId,arr = [], keys = [] ){
             });
       map.setStreetView(panorama);
    }
-      
-   this.returnContent = // create all the content to be displayed in the infoWindow
-   function(){
+      // create all the content to be displayed in the infoWindow
+   this.returnContent = function(){
         
       var propertyArr = this.propArrCreate();  //get the twodimentional array created by the proparrCreate function  
      
       var str="<div style = 'width:300px;height:auto;font-family:calibri;z-index:-1; font-size: 16px;'>" //some style to display in the infowindow
       
-      str+="<b>Centernavn: "+ this.centerName+"</b><br/>"// The first field will allways be centername 
-        + '<button id = "kommune"> Se området UU centeret dækker</div>'
+      //str+='<button id = "kommune"> Se området UU centeret dækker</div>'
          for(var j = 0; j< propertyArr.length;j++){                     
             str+= "<b>" +propertyArr[j][0]+":</b>  "+ propertyArr[j][1]+"<br/>" // inserts the fieldtitles and the values in the content                        
             }   
@@ -65,11 +59,8 @@ function uuCenter(mapId,arr = [], keys = [] ){
      
       return(str)     
     }
-                    
-   this.marker =  // display the pin on the map og sets all the content in the infowindow
-   function(map){
-         
-    
+     // display the pin on the map og sets all the content in the infowindow            
+   this.marker =  function(map){
       var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|"+pinColor);
     
       var mark = new google.maps.Marker({

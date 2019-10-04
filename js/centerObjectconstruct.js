@@ -45,31 +45,28 @@ function(map){
     })
     mark.setAnimation();
      
-   var infoW = new google.maps.InfoWindow({
+   /*var infoW = new google.maps.InfoWindow({
          maxWidth:500,
        
         content:" <div style='width:auto;height:100px;font-family:calibri;z-index:-1; font-size: 16px;'> <b>Centernavn:</b> "+this.centerName+"<br> "+"<b>Centerleder:</b> "+this.leader+"<br/> "+"<b>Adresse:</b> "+this.adress
         +"</div>"
        
 });
-   var infoW2 = new google.maps.InfoWindow({
+*/
+    var infoW2 = new google.maps.InfoWindow({
       maxWidth:500,
       content:" <div style='width:auto;height:auto;font-family:calibri;z-index:-1; font-size: 18px;'>"+ this.centerName+"<p><i>Klik på ikonet nedenfor</i></p></div>"
       
       
       });
+      
       google.maps.event.addListener(mark, "click", function() {
             
            infoW.open(map,mark);
            infoW2.close();
                     
     });
-      
-      //Test af infobox
-      
-     
 
-    
        google.maps.event.addListener(mark, "mouseover", function(){
          
          infoW2.open(map,mark);
@@ -81,15 +78,6 @@ function(map){
          infoW2.close();
          
          });
-     
-        
-      
-     google.maps.event.addListener(mark,"click",function(){
-   
-           //window.location.href=this.url;
-         
-        });
-     
       
     return mark
 }
